@@ -48,10 +48,8 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Lock body scroll when dialog is open
   useEffect(() => {
     if (activeItem) {
-      // Stop Lenis smooth scrolling when dialog is open
       const lenis = (
         window as unknown as { lenis?: { stop: () => void; start: () => void } }
       ).lenis;
@@ -81,8 +79,6 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
     };
   }, [activeItem]);
 
-  // Smooth spring transition for layout animations
-  // Lower stiffness for smoother mobile performance
   const springTransition = {
     type: "spring" as const,
     stiffness: 260,
@@ -91,11 +87,9 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
 
   return (
     <>
-      {/* Portal for Dialog - renders at document.body level to escape parent stacking contexts */}
       {mounted &&
         createPortal(
           <>
-            {/* Backdrop overlay */}
             <AnimatePresence>
               {activeItem ? (
                 <motion.div
@@ -110,7 +104,6 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
               ) : null}
             </AnimatePresence>
 
-            {/* Expanded Dialog Card */}
             <AnimatePresence mode="wait">
               {activeItem ? (
                 <div className="fixed inset-0 z-9999 grid place-items-center p-4 pointer-events-none">
@@ -124,15 +117,23 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
                     {/* Banner */}
                     <motion.div
                       layoutId={`card-banner-${project.name}`}
-                      className="w-full bg-gray-200 aspect-video shrink-0 relative"
+                      className="w-full bg-black/5 dark:bg-white/15 aspect-video shrink-0 relative overflow-hidden"
                       transition={springTransition}
                     >
-                      <Image
-                        src={project.banner}
-                        alt={project.name}
-                        fill
-                        className="object-cover h-full w-auto"
-                      />
+                      <motion.div
+                        layoutId={`card-banner-image-${project.name}`}
+                        className="absolute inset-0"
+                        transition={springTransition}
+                      >
+                        {project.banner.length > 0 && (
+                          <Image
+                            src={project.banner}
+                            alt={project.name}
+                            fill
+                            className="object-cover h-full w-auto"
+                          />
+                        )}
+                      </motion.div>
                     </motion.div>
 
                     {/* Scrollable content area */}
@@ -214,7 +215,13 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
                               transition={springTransition}
                               title={tech.name}
                             >
-                              <CustomBadge key={tech.name} href={tech.link} name={tech.name}><tech.icon  size={18}  /></CustomBadge>
+                              <CustomBadge
+                                key={tech.name}
+                                href={tech.link}
+                                name={tech.name}
+                              >
+                                <tech.icon size={18} />
+                              </CustomBadge>
                             </motion.div>
                           ))}
                         </div>
@@ -252,7 +259,7 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
               ) : null}
             </AnimatePresence>
           </>,
-          document.body
+          document.body,
         )}
 
       {/* This is the actual card, that need to be clicked */}
@@ -274,21 +281,35 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
         <div className="p-1 rounded-[10px]  w-full border border-dashed dark:border-white/30 border-black/20 ">
           <motion.div
             layoutId={`card-banner-${project.name}`}
-            className="w-full bg-gray-200 aspect-4/3 h-44 relative rounded-[8px] border  border-border overflow-hidden "
+            className="w-full bg-black/5 dark:bg-white/15 aspect-4/3 h-44 relative rounded-[8px] border  border-border overflow-hidden "
             transition={springTransition}
           >
-            <Image
-              src={project.banner}
-              alt={project.name}
-              fill
-              className="object-cover h-full w-auto"
-            />
+            <motion.div
+              layoutId={`card-banner-image-${project.name}`}
+              className="h-auto w-[85%] absolute mx-auto left-0 right-0 aspect-4/2 shadow-2xl rounded-sm overflow-hidden"
+              initial={{ bottom: "-2rem", rotate: -8 }}
+              whileHover={{ bottom: 0, rotate: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 20,
+              }}
+            >
+              {project.banner.length > 0 && (
+                <Image
+                  src={project.banner}
+                  alt={project.name}
+                  fill
+                  className="object-cover h-full w-auto"
+                />
+              )}
+            </motion.div>
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            {/* <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <span className="text-white font-medium text-sm">
                 Click to expand
               </span>
-            </div>
+            </div> */}
           </motion.div>
         </div>
         {/* Detail section */}
@@ -310,12 +331,12 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
               <Button
                 variant="ghost"
                 size={"icon-lg"}
-                    onClick={() =>
-          setActiveItem({
-            name: project.name,
-            description: project.description,
-          })
-        }
+                onClick={() =>
+                  setActiveItem({
+                    name: project.name,
+                    description: project.description,
+                  })
+                }
                 className="flex sm:hidden p-0 w-fit h-fit size-6 m-0"
               >
                 <HugeiconsIcon icon={ArrowExpandIcon} />

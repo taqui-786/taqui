@@ -197,7 +197,36 @@ export const allProjects: ProjectData[] = [
       techStack.shadcnui,
     ],
   },
-    {
+  {
+    id: 55,
+    name: "Inkash",
+    href: "https://github.com/taqui-786/inkash",
+    live: "https://inkash.vercel.app",
+    featured: false,
+    createdAt: "07-02-2025",
+    banner: "/project_banners/inkash_banner.png",
+    description:
+      "Inkash (Ink + Hash) is a beautifully simple web app that lets you create Markdown documents or freehand Canvas drawings — and stores everything directly in the URL. No sign-ups, no cloud storage, no cookies. Your content is the link.",
+    features: [
+      "High-level Markdown editor with intuitive interface",
+      "URL Storage - Your entire document is compressed and encoded into the URL hash. The link IS your file",
+      "Instant Sharing - No uploading. No waiting. Just copy the URL and send it — the recipient sees exactly what you created",
+      "Zero Accounts - No login. No email. No tracking. Completely anonymous and private",
+      "Offline Ready - Works without internet once loaded. Your browser caches everything",
+      "QR Code Sharing - Generate a QR code for any document — perfect for sharing on mobile or presentations",
+      "Export Options - Download your work as HTML, TXT (Markdown) or PNG, SVG (Canvas)",
+      "Dark Mode - Automatic system theme detection with beautiful light and dark modes",
+      "Built with Next.js 15 framework",
+      "Modern UI components styled with shadcn-ui and Tailwind CSS",
+    ],
+    technologies: [
+      techStack.nextjs,
+      techStack.typescript,
+      techStack.tailwindcss,
+      techStack.shadcnui,
+    ],
+  },
+  {
     id: 15,
     name: "Portfolio v2",
     href: "https://github.com/taqui-786/portfolio_v2",
@@ -418,7 +447,7 @@ export const allProjects: ProjectData[] = [
     live: "https://devzone-ti.vercel.app/",
     createdAt: "03-11-2024",
     featured: false,
-    banner: "/project_banners/no_banner.png",
+    banner: "",
     description:
       "DevZone is an innovative platform designed to connect developers, fostering collaboration and knowledge sharing within the tech community. It offers a space for developers to showcase their skills, share projects, and engage in discussions.",
     features: [
