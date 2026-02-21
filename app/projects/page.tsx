@@ -6,7 +6,7 @@ export const metadata = genMeta("/projects");
 
 function page() {
   return (
-    <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto py-16 animate-fade-in-blur">
+    <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto pt-16 md:py-16 animate-fade-in-blur">
       <div className=" flex flex-col gap-4 items-center justify-center border-b pb-8 ">
         <h1 className="md:text-5xl text-4xl  text-title font-bold text-center font-instrument-serif tracking-wider italic ">
           All Projects
@@ -16,7 +16,7 @@ function page() {
         </p>
       </div>
       <ProjectFeed />
-      <div className="flex flex-wrap items-center gap-2 p-3 justify-center ">
+      <div className="flex flex-wrap items-center gap-2 p-3 justify-center mt-16 ">
         <p className="text-muted-foreground flex items-center gap-1">
           <span className="hidden sm:block">
             For more interesting projects, visit my

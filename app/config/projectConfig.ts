@@ -113,7 +113,7 @@ export const allProjects: ProjectData[] = [
     href: "https://github.com/taqui-786/PDFlow",
     live: "https://pdflow-free.vercel.app/",
     createdAt: "12-07-2025",
-    featured: true,
+    featured: false,
     banner: "/project_banners/pdflow_banner.png",
     description:
       "Transform the way you interact with documents. Our AI-powered platform allows you to upload PDF files and have intelligent conversations with them, extract key insights, and analyze content effortlessly.",
@@ -174,7 +174,7 @@ export const allProjects: ProjectData[] = [
     name: "itZmyLink",
     href: "https://github.com/taqui-786/itZmyLink",
     live: "https://itzmylink.vercel.app/",
-    featured: false,
+    featured: true,
     createdAt: "14-10-2023",
     banner: "/project_banners/itzmylink_banner.png",
     description:
@@ -195,6 +195,31 @@ export const allProjects: ProjectData[] = [
       techStack.typescript,
       techStack.tailwindcss,
       techStack.shadcnui,
+    ],
+  },
+  {
+    id: 57,
+    name: "DesignScraper",
+    href: "https://github.com/taqui-786/design-scraper",
+    live: "https://design-scraper.vercel.app",
+    featured: false,
+    createdAt: "20-01-2026",
+    banner: "/project_banners/design_scraper_banner.png",
+    description:
+      "An intelligent web scraper that analyzes websites and extracts their complete design system including colors, typography, logos, and brand vibe.",
+    features: [
+      "Smart Color Extraction - Identifies primary, secondary, and background colors with semantic understanding",
+      "Typography Analysis - Detects heading and body fonts with their properties",
+      "Logo Detection - Finds and extracts logos (SVG prioritized)",
+      "AI Vibe Analysis - Uses Groq LLM to analyze brand tone, audience, and design vibe",
+      "Beautiful Dashboard - Modern dark UI with tabs, color visualizations, and JSON export",
+    ],
+    technologies: [
+      techStack.nextjs,
+      techStack.typescript,
+      techStack.tailwindcss,
+      techStack.shadcnui,
+      techStack.openai,
     ],
   },
   {
