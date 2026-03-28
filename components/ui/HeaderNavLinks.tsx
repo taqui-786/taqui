@@ -23,7 +23,7 @@ import React from 'react'
 function HeaderNavLinks() {
 const  params = usePathname()
   return (
-         <nav className="flex items-center gap-2 md:gap-4 text">
+         <nav className="flex items-center gap-3 md:gap-4 text">
             {
                 links.map((link) => (
                     <Link
