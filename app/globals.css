@@ -128,8 +128,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar-thumb]:rounded-full selection:bg-subtle selection:text-white ;
-    
+    @apply bg-background text-foreground [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar-thumb]:rounded-full selection:bg-subtle selection:text-white;
   }
 }
 
@@ -150,19 +149,27 @@
   filter: blur(3px);
 }
 @keyframes shake {
-    0%,to {
-        transform: rotate(0)
-    }
+  0%,
+  to {
+    transform: rotate(0);
+  }
 
-    10%,30%,50%,70%,90% {
-        transform: rotate(-5deg)
-    }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: rotate(-5deg);
+  }
 
-    20%,40%,60%,80% {
-        transform: rotate(5deg)
-    }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: rotate(5deg);
+  }
 }
 
 .shake-on-hover:hover {
-    animation: .5s ease-in-out shake
+  animation: 0.5s ease-in-out shake;
 }

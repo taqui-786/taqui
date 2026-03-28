@@ -1,42 +1,55 @@
 import React from "react";
 import { CustomBadge } from "../ui/custom-badge";
 import {
+  AwsIcon,
+  FramermotionIcon,
   NextjsIcon,
   PostgresqlIcon,
-  ReactIcon,
-  ReactQueryIcon,
+  PrismaIcon,
+  SocketioIcon,
   TypescriptIcon,
+  VercelIcon,
 } from "../customIcons";
 
 function HeroBio() {
   return (
     <div className="text-base md:text-lg text-muted-foreground leading-10 ">
-      I'm a <b className="text-title ">Full Stack</b> web Developer builds
-      interactive web <b className="text-title ">app</b> using{" "}
-      <CustomBadge href="https://www.typescriptlang.org/" name="Typescript">
-        <TypescriptIcon size={18} />
-      </CustomBadge>{" "}
-      ,{" "}
-      <CustomBadge href="https://react.dev/" name="React">
-        <ReactIcon size={18} />
-      </CustomBadge>{" "}
-      ,{" "}
-      <CustomBadge href="https://nextjs.org/" name="Nextjs">
+      <b className="text-title">Full Stack Developer</b> building fast apps
+      with{" "}
+      <CustomBadge href="https://nextjs.org/" name="Next.js">
         <NextjsIcon size={18} />
       </CustomBadge>{" "}
+      and{" "}
+      <CustomBadge href="https://www.typescriptlang.org/" name="TypeScript">
+        <TypescriptIcon size={18} />
+      </CustomBadge>
+      , using{" "}
+      <CustomBadge href="https://www.prisma.io/" name="Prisma">
+        <PrismaIcon size={18} />
+      </CustomBadge>
       ,{" "}
-      <CustomBadge
-        href="https://tanstack.com/query/latest"
-        name="Tanstack Query"
-      >
-        <ReactQueryIcon size={18} />
+      <CustomBadge href="https://www.postgresql.org/" name="PostgreSQL">
+        <PostgresqlIcon size={18} />
+      </CustomBadge>
+      , and{" "}
+      <CustomBadge href="https://socket.io/" name="Socket.IO">
+        <SocketioIcon size={18} />
+      </CustomBadge>
+      , with animations via{" "}
+      <CustomBadge href="https://www.framer.com/motion/" name="Framer Motion">
+        <FramermotionIcon size={18} />
+      </CustomBadge>
+      {" "} or{" "}
+      <CustomBadge href="https://gsap.com/" name="GSAP" />
+      , deployed on{" "}
+      <CustomBadge href="https://vercel.com/" name="Vercel">
+        <VercelIcon size={18} />
       </CustomBadge>{" "}
       and{" "}
-      <CustomBadge href="https://www.postgresql.org/" name="Postgresql">
-        <PostgresqlIcon size={18} />
-      </CustomBadge>{" "}
-      . My main focus is <b className="text-title ">UI</b> design, performance,
-      and interfaces <b className="text-title ">users</b> actually enjoy using.
+      <CustomBadge href="https://aws.amazon.com/" name="AWS">
+        <AwsIcon size={18} />
+      </CustomBadge>
+      .
     </div>
   );
 }

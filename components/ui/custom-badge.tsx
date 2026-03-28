@@ -3,7 +3,7 @@ export const CustomBadge = ({
   href,
   name,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   href: string;
   name: string;
 }) => {
@@ -16,9 +16,9 @@ export const CustomBadge = ({
       className="inline-flex  items-center no-underline text-sm bg-black/5 dark:bg-white/15 border  py-[2px] px-[6px] rounded-[6px] skill-inner-shadow self-end text-title overflow-hidden"
       href={href}
       >
-      <div className=" shrink-0">{children}</div>
-      <p className="ml-1 text-sm font-bold ">{name}</p>
+      {children && <div className=" shrink-0">{children}</div>}
+      <p className={`${children ? "ml-1" : ""} text-sm font-bold`}>{name}</p>
     </a>
       </div>
   );
-};
+};

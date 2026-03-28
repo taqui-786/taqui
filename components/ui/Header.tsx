@@ -9,7 +9,7 @@ function Header() {
     <header className="container mx-auto max-w-full md:max-w-3xl px-4 sticky top-0 z-50 rounded-md py-4 bg-background/95 supports-backdrop-filter:backdrop-blur-sm supports-backdrop-filter:bg-background/80">
       <div className="flex items-center justify-between">
         <div className="flex gap-4">
-          <Link href="/">
+          {/* <Link href="/">
             <div className="h-12 w-12 rounded-md bg-blue-300 overflow-hidden flex items-end p-0">
               <Image
                 src={"/taqui-removebg-preview.png"}
@@ -20,7 +20,7 @@ function Header() {
                 className="h-full w-full object-cover  scale-[1.4] translate-y-1.5 [@media(hover:hover)_and_(pointer:fine)]:transition-transform [@media(hover:hover)_and_(pointer:fine)]:duration-200 [@media(hover:hover)_and_(pointer:fine)]:ease-[ease] [@media(hover:hover)_and_(pointer:fine)]:hover:scale-125 [@media(hover:hover)_and_(pointer:fine)]:will-change-transform"
               />
             </div>{" "}
-          </Link>
+          </Link> */}
           <HeaderNavLinks />
         </div>
 

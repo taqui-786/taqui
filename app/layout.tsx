@@ -4,11 +4,12 @@ import {
   Geist_Mono,
   Instrument_Serif,
   Hanken_Grotesk,
+  
 } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 import { ViewTransitions } from "next-view-transitions";
-import ReactLenis from "lenis/react";
+
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import UmamiAnalytics from "@/components/analytics/UmamiAnalytics";
 import Footer from "@/components/ui/Footer";
