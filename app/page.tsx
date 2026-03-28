@@ -11,7 +11,7 @@ import BlogSection from "@/components/LandingPage/BlogSection";
 import QuoteSection from "@/components/LandingPage/QuoteSection";
 export default function Page() {
   return (
-    <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto py-16">
+    <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto md:py-12 py-4">
       {/* Hero section part */}
       <HeroImageSection />
       <div className="relative space-y-8 md:px-4 animate-fade-in-blur">

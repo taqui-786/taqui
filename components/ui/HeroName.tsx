@@ -2,7 +2,7 @@
 
 function HeroName() {
   return (
-    <div className="flex items-center justify-start flex-1 md:pl-8 pl-2 ">
+    <div className="flex items-center justify-start flex-1 md:pl-8 pl-4 ">
       <div className="flex items-center gap-4 relative ">
         <div className="flex flex-col gap-2">
           <span className="md:text-lg text-sm text-muted-foreground flex items-center gap-2 ">
