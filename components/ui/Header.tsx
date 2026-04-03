@@ -17,10 +17,12 @@ function Header() {
 
         <div className="flex items-center gap-2">
           {/* <GitHubHeaderBtn /> */}
-          <Button variant={'ghost'}>
-            <HugeiconsIcon icon={GithubIcon} />
-            Github
-          </Button>
+          <a href="https://github.com/taqui-786" target="_blank" >
+            <Button variant={'ghost'}>
+              <HugeiconsIcon icon={GithubIcon} />
+              Github
+            </Button>
+          </a>
 
           <ThemeTogglerButton
             variant={"secondary"}
