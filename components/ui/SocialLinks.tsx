@@ -10,6 +10,7 @@ import {
   Mail,
   MediumIcon,
   NewTwitterIcon,
+  WhatsappIcon,
 } from "@hugeicons/core-free-icons";
 import {
   Tooltip,
@@ -44,6 +45,14 @@ function SocialLinks() {
       href: "https://www.linkedin.com/in/taqui-imam/",
     },
 
+    {
+      id: 40,
+      name: "Whatsapp",
+      username: "@md_taqui_imam",
+      icon: WhatsappIcon,
+      alt: "Whatsapp",
+      href: "https://wa.me/+917667282384",
+    },
     {
       id: 4,
       name: "Instagram",

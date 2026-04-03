@@ -13,7 +13,7 @@ export const CustomBadge = ({
     <a
       target="_blank"
       style={{textDecoration:"none"}}
-      className="inline-flex  items-center no-underline text-sm bg-black/5 dark:bg-white/15 border  py-[2px] px-[6px] rounded-[6px] skill-inner-shadow self-end text-title overflow-hidden"
+      className="inline-flex  items-center no-underline text-sm bg-muted  border  py-[2px] px-[6px] rounded-[6px] skill-inner-shadow self-end text-title overflow-hidden"
       href={href}
       >
       {children && <div className=" shrink-0">{children}</div>}
@@ -21,4 +21,4 @@ export const CustomBadge = ({
     </a>
       </div>
   );
-};
+};

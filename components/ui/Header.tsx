@@ -3,6 +3,9 @@ import { Link } from "next-view-transitions";
 import { ThemeTogglerButton } from "../animate-ui/components/buttons/theme-toggler";
 import HeaderNavLinks from "./HeaderNavLinks";
 import Image from "next/image";
+import { Button } from "./button";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { GithubIcon } from "@hugeicons/core-free-icons";
 
 function Header() {
   return (
@@ -13,7 +16,11 @@ function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-          <GitHubHeaderBtn />
+          {/* <GitHubHeaderBtn /> */}
+          <Button variant={'ghost'}>
+            <HugeiconsIcon icon={GithubIcon} />
+            Github
+          </Button>
 
           <ThemeTogglerButton
             variant={"secondary"}

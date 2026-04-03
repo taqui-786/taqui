@@ -177,7 +177,7 @@ function ContactForm() {
             <Textarea
               id="message"
               placeholder="Write your message here..."
-              rows={5}
+              rows={3}
               className="resize-none h-[150px] border border-solid border-black/30 dark:border-white/30 rounded-[8px]"
               {...register("message")}
               aria-invalid={!!errors.message}

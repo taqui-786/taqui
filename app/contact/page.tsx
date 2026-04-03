@@ -1,5 +1,8 @@
-import ContactForm from '@/components/ContactForm'
-import React from 'react'
+import ContactForm from "@/components/ContactForm";
+import { Button } from "@/components/ui/button";
+import { Calendar03Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import React from "react";
 
 function page() {
   return (
@@ -14,9 +17,25 @@ function page() {
       </div>
       <div className="mt-8">
         <ContactForm />
+        <div className="w-full p-4 bg-muted rounded-lg flex items-center mt-8">
+          <HugeiconsIcon
+            icon={Calendar03Icon}
+            size={48}
+            className="shrink-0 text-title"
+          />
+          <div className="flex-1 pl-4 text-title">
+            <h2 className="text-xl font-bold">Let’s Build Something Great</h2>
+            <p className="text-sm text-muted-foreground">
+              Got an idea or project in mind? Let’s talk.
+            </p>
+          </div>
+          <a href="https://cal.com/taqui/15min" target="_blank" className="p-[2px] group border w-fit border-dashed dark:border-white/30 border-black/20  rounded-[10px]">
+            <Button className="rounded-[10px]" size={'sm'}>Book a Call</Button>
+          </a>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
