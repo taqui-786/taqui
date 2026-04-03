@@ -8,7 +8,7 @@ function HeroImageSection() {
       {/* Profile Image */}
     
         <div className="relative p-[2px] border border-dashed dark:border-white/30 border-black/20 rounded-[16px] w-fit">
-          <div className="relative md:size-32 size-28 rounded-[12px] overflow-hidden bg-blue-300  transition-all duration-300 group-hover:scale-105">
+          <div className="relative md:size-30 size-28 rounded-[12px] overflow-hidden bg-blue-300  transition-all duration-300 group-hover:scale-105">
 
             <Image
               className="
