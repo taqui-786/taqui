@@ -11,9 +11,9 @@ export const SocketioIcon = ({ size }: SocketioProps) => (
     viewBox="0 0 128 128"
     fill="currentColor"
   >
-    <g fill="currentColor" fill-rule="evenodd">
+    <g fill="currentColor" fillRule="evenodd">
       <path
-        fill-rule="nonzero"
+        fillRule="nonzero"
         d="M63.951.001C28.696.001.001 28.696.001 63.951s28.695 63.95 63.95 63.95s63.95-28.695 63.95-63.95S99.206.001 63.95.001zm0 10.679c29.484 0 53.272 23.787 53.272 53.271c0 29.485-23.788 53.272-53.272 53.272c-29.484 0-53.272-23.787-53.272-53.272c0-29.484 23.788-53.271 53.272-53.271z"
         color="#000"
       />
@@ -92,13 +92,13 @@ export const VscodeIcon = ({ size }: VscodeProps) => (
       x="0"
       y="0"
       maskUnits="userSpaceOnUse"
-      style={{ maskType: 'alpha' }}
+      style={{ maskType: "alpha" }}
     >
       <path
         fill="#fff"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M90.767 127.126a7.968 7.968 0 0 0 6.35-.244l26.353-12.681a8 8 0 0 0 4.53-7.209V21.009a8 8 0 0 0-4.53-7.21L97.117 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026L15.6 32.013a5.328 5.328 0 0 0-6.807.302l-7.048 6.411a5.335 5.335 0 0 0-.006 7.888L20.796 64L1.74 81.387a5.336 5.336 0 0 0 .006 7.887l7.048 6.411a5.327 5.327 0 0 0 6.807.303l21.974-16.68l50.45 46.025a7.96 7.96 0 0 0 2.743 1.793Zm5.252-92.183L57.74 64l38.28 29.058V34.943Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
     </mask>
     <g mask="url(#deviconVscode0)">
@@ -120,9 +120,9 @@ export const VscodeIcon = ({ size }: VscodeProps) => (
       </g>
       <path
         fill="url(#deviconVscode3)"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M90.69 127.126a7.968 7.968 0 0 0 6.349-.244l26.353-12.681a8 8 0 0 0 4.53-7.21V21.009a8 8 0 0 0-4.53-7.21L97.039 1.12a7.97 7.97 0 0 0-9.093 1.548l-50.45 46.026l-21.974-16.68a5.328 5.328 0 0 0-6.807.302l-7.048 6.411a5.336 5.336 0 0 0-.006 7.888L20.718 64L1.662 81.386a5.335 5.335 0 0 0 .006 7.888l7.048 6.411a5.328 5.328 0 0 0 6.807.303l21.975-16.681l50.45 46.026a7.959 7.959 0 0 0 2.742 1.793Zm5.252-92.184L57.662 64l38.28 29.057V34.943Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
         opacity=".25"
       />
     </g>
@@ -133,10 +133,10 @@ export const VscodeIcon = ({ size }: VscodeProps) => (
         height="113.408"
         x="-8.411"
         y="22.594"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           result="hardAlpha"
@@ -162,10 +162,10 @@ export const VscodeIcon = ({ size }: VscodeProps) => (
         height="144.007"
         x="79.667"
         y="-8.004"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
         filterUnits="userSpaceOnUse"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           result="hardAlpha"
@@ -193,8 +193,8 @@ export const VscodeIcon = ({ size }: VscodeProps) => (
         y2="127.67"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#fff" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop stopColor="#fff" />
+        <stop offset="1" stopColor="#fff" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>
@@ -1197,13 +1197,21 @@ export const PointIcon = ({ size }: PointProps) => (
   </svg>
 );
 type GithubProps = {
-    size: string;
-    className?:string
+  size: string;
+  className?: string;
 };
-      
-export const GithubIcon = ({ size,className }: GithubProps) => (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} width={size} height={size} viewBox="0 0 432 416"><path fill="currentColor" d="M213.5 0q88.5 0 151 62.5T427 213q0 70-41 125.5T281 416q-14 2-14-11v-58q0-27-15-40q44-5 70.5-27t26.5-77q0-34-22-58q11-26-2-57q-18-5-58 22q-26-7-54-7t-53 7q-18-12-32.5-17.5T107 88h-6q-12 31-2 57q-22 24-22 58q0 55 27 77t70 27q-11 10-13 29q-42 18-62-18q-12-20-33-22q-2 0-4.5.5t-5 3.5t8.5 9q14 7 23 31q1 2 2 4.5t6.5 9.5t13 10.5T130 371t30-2v36q0 13-14 11q-64-22-105-77.5T0 213q0-88 62.5-150.5T213.5 0z"/></svg>
+
+export const GithubIcon = ({ size, className }: GithubProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    width={size}
+    height={size}
+    viewBox="0 0 432 416"
+  >
+    <path
+      fill="currentColor"
+      d="M213.5 0q88.5 0 151 62.5T427 213q0 70-41 125.5T281 416q-14 2-14-11v-58q0-27-15-40q44-5 70.5-27t26.5-77q0-34-22-58q11-26-2-57q-18-5-58 22q-26-7-54-7t-53 7q-18-12-32.5-17.5T107 88h-6q-12 31-2 57q-22 24-22 58q0 55 27 77t70 27q-11 10-13 29q-42 18-62-18q-12-20-33-22q-2 0-4.5.5t-5 3.5t8.5 9q14 7 23 31q1 2 2 4.5t6.5 9.5t13 10.5T130 371t30-2v36q0 13-14 11q-64-22-105-77.5T0 213q0-88 62.5-150.5T213.5 0z"
+    />
+  </svg>
 );
-
-
-      
