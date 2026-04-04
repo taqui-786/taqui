@@ -17,7 +17,7 @@ function Header() {
     
 
           <ThemeTogglerButton
-            variant={"secondary"}
+            variant={"ghost"}
             size={"lg"}
             direction="ttb"
           />

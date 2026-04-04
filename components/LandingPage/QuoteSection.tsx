@@ -5,7 +5,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 function QuoteSection() {
   return (
     <div className=" w-full mt-16">
-        <div className="relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-4 border-y px-4 py-8 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]">
+        <div className="relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-4 border-y border-dashed dark:border-white/30 border-black/20 px-4 py-8 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]">
 			<HugeiconsIcon icon={Plus}
 				className="absolute top-[-12.5px] left-[-11.5px] z-1 size-6"
 				strokeWidth={1}
@@ -23,8 +23,8 @@ function QuoteSection() {
 				strokeWidth={1}
 			/>
 
-			<div className="-inset-y-6 pointer-events-none absolute left-0 w-px border-l" />
-			<div className="-inset-y-6 pointer-events-none absolute right-0 w-px border-r" />
+			<div className="-inset-y-6 pointer-events-none absolute left-0 w-px border-l border-dashed dark:border-white/30 border-black/20" />
+			<div className="-inset-y-6 pointer-events-none absolute right-0 w-px border-r border-dashed dark:border-white/30 border-black/20" />
 
  
 		 <div className="py-4 sm:py-6 flex flex-col items-center text-center relative overflow-hidden group">

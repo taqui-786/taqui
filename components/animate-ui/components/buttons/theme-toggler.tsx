@@ -20,6 +20,7 @@ const getIcon = (resolved: Resolved) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
+      className="size-6 text-primary"
       fill="currentColor"
       strokeLinecap="round"
       viewBox="0 0 32 32"

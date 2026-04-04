@@ -13,7 +13,7 @@ import {
 
 function HeroBio() {
   return (
-    <div className="text-base md:text-lg text-muted-foreground leading-10 "> i build
+    <div className="text-base md:text-lg text-primary leading-10 "> i build
       {" "}<b className="text-title ">Full Stack apps</b> with{" "}
       <CustomBadge href="https://nextjs.org/" name="Next.js">
         <NextjsIcon size={18} />

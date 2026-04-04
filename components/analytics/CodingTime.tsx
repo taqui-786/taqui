@@ -4,7 +4,7 @@ import { VisualStudioCodeIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useQuery } from "@tanstack/react-query";
 import { CustomBadge } from "@/components/ui/custom-badge";
-import { TypescriptIcon, JavascriptIcon, CssIcon, FileTypeReactjsIcon } from "@/components/customIcons";
+import { TypescriptIcon, JavascriptIcon, CssIcon, FileTypeReactjsIcon, VscodeIcon } from "@/components/customIcons";
 
 interface WakaTimeGrandTotal {
   digital: string;
@@ -125,7 +125,7 @@ export default function CodingTime() {
   // Loading skeleton — full width to match
   if (isLoading) {
     return (
-      <div className="w-full rounded-lg border border-border/50 bg-secondary/30 p-4">
+      <div className="w-full rounded-lg  p-4">
         <div className="flex items-center gap-3">
           <div className="size-9 animate-pulse rounded-md bg-muted-foreground/15" />
           <div className="flex flex-1 flex-col gap-2">
@@ -156,28 +156,26 @@ export default function CodingTime() {
   const isLive = timeAgo === null;
 
   return (
-    <div className="w-full rounded-lg border border-border/50 bg-secondary/30 px-4 py-3">
+    <div className="w-full rounded-lg px-4 py-3">
       <div className="flex items-center justify-between gap-4">
         {/* Left: Status */}
         <div className="flex items-center gap-3 min-w-0">
           <div className="relative shrink-0">
-            <HugeiconsIcon
-              icon={VisualStudioCodeIcon}
-              className="size-8 text-primary"
+            <VscodeIcon
+            size="32"
             />
-            {isLive && (
-              <span className="absolute -top-0.5 -right-0.5 flex size-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex size-2.5 rounded-full bg-green-500" />
-              </span>
-            )}
+        
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="flex items-center gap-1.5 text-sm text-title">
+            <span className="flex items-center gap-1.5 text-sm text-title font-medium">
               {isLive ? (
-                <span className="truncate">
+                <span className="truncate flex items-center gap-1.5">
                   Currently coding in{" "}
                   <span className="font-semibold">{editorName}</span>
+                      <span className="relative flex size-2 mr-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-green-500" />
+              </span>
                 </span>
               ) : (
                 <>

@@ -26,11 +26,10 @@ function BlogCard({blog}: {blog: BlogConfig}) {
             </div>
             <div className="flex gap-2">
               {blog.tags.map((tag, index) => (
-                <div key={index} className="p-[2px] inline-flex items-center border border-dashed dark:border-white/30 border-black/20 rounded-[8px]">
-                  <div className="inline-flex  items-center no-underline bg-black/5 dark:bg-white/15 border  py-[2px] px-[5px] rounded-[6px] skill-inner-shadow self-end text-title overflow-hidden">
+                  <div key={index} className="inline-flex  items-center no-underline border border-dashed dark:border-white/30 border-black/20  bg-black/5 dark:bg-white/15  py-[2px] px-[5px] rounded-[6px] skill-inner-shadow self-end text-title overflow-hidden">
                     <p className="ml-1 text-xs font-semibold ">{tag}</p>
                   </div>
-                </div>
+
               ))}
             </div>
           </div>
