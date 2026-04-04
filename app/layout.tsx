@@ -12,6 +12,7 @@ import { ViewTransitions } from "next-view-transitions";
 
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import UmamiAnalytics from "@/components/analytics/UmamiAnalytics";
+import QueryProvider from "@/components/providers/QueryProvider";
 import Footer from "@/components/ui/Footer";
 import { generateMetadata as genMeta } from "@/app/config/siteConfig";
 import { Toaster } from "react-hot-toast";
@@ -60,13 +61,15 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* <ReactLenis root> */}
-              <main className="min-h-dvh">
-                <Header />
-                {children}
-                <Footer />
-              </main>
-            {/* </ReactLenis> */}
+            <QueryProvider>
+              {/* <ReactLenis root> */}
+                <main className="min-h-dvh">
+                  <Header />
+                  {children}
+                  <Footer />
+                </main>
+              {/* </ReactLenis> */}
+            </QueryProvider>
           </ThemeProvider>
           <Toaster/>
           <UmamiAnalytics />

@@ -8,17 +8,17 @@ export const CustomBadge = ({
   name: string;
 }) => {
   return (
-    <div className="p-[2px] inline-flex items-center border border-dashed dark:border-white/30 border-black/20 rounded-[8px]">
+    // <div className="p-[2px] inline-flex items-center border border-dashed dark:border-white/30 border-black/20 rounded-[8px]">
 
     <a
       target="_blank"
       style={{textDecoration:"none"}}
-      className="inline-flex  items-center no-underline text-sm bg-muted  border  py-[2px] px-[6px] rounded-[6px] skill-inner-shadow self-end text-title overflow-hidden"
+      className="inline-flex  items-center no-underline text-sm bg-muted  border border-dashed dark:border-white/30 border-black/20 py-[3px] px-[6px] rounded-[6px] skill-inner-shadow self-end text-primary overflow-hidden"
       href={href}
       >
       {children && <div className=" shrink-0">{children}</div>}
       <p className={`${children ? "ml-1" : ""} text-sm font-bold`}>{name}</p>
     </a>
-      </div>
+      // </div>
   );
 };

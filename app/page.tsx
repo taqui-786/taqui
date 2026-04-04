@@ -9,15 +9,14 @@ import ExperienceSection from "@/components/LandingPage/ExperienceSection";
 import TechStackSection from "@/components/LandingPage/TechStackSection";
 import BlogSection from "@/components/LandingPage/BlogSection";
 import QuoteSection from "@/components/LandingPage/QuoteSection";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { VisualStudioCodeIcon } from "@hugeicons/core-free-icons";
+import CodingTime from "@/components/analytics/CodingTime";
 export default function Page() {
   return (
     <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto md:py-12 py-4">
       {/* Hero section part */}
       <HeroImageSection />
       <div className="relative space-y-8 md:px-4 animate-fade-in-blur">
-        {/* <HeroName /> */}
+        <HeroName />
         {/* Short Bio */}
         <HeroBio />
         {/* Action Buttons */}
@@ -27,8 +26,9 @@ export default function Page() {
 
         {/* Contribution Graph */}
         <HeroContributionGraph />
+        <CodingTime/>
            {/* Tech stack Section */}
-        <TechStackSection />
+        {/* <TechStackSection /> */}
         {/* Projects section */}
         <ProjectsSection />
         {/* Experience section */}

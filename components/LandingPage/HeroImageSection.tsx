@@ -3,12 +3,12 @@ import HeroName from "../ui/HeroName";
 
 function HeroImageSection() {
   return (
-    <div className="relative mb-8 h-fit w-full md:px-4 animate-fade-in-up flex">
+    <div className="relative mb-6 h-fit w-full md:px-4 animate-fade-in-up flex">
 
       {/* Profile Image */}
     
-        <div className="relative p-[2px] border border-dashed dark:border-white/30 border-black/20 rounded-[16px] w-fit">
-          <div className="relative md:size-30 size-28 rounded-[12px] overflow-hidden bg-blue-300  transition-all duration-300 group-hover:scale-105">
+        <div className="relative p-[2px] border border-dashed dark:border-white/30 border-black/20 rounded-full w-fit">
+          <div className="relative md:size-30 size-28 rounded-full overflow-hidden bg-blue-300  transition-all duration-300 group-hover:scale-105">
 
             <Image
               className="
@@ -30,7 +30,7 @@ hover:scale-110
           </div>
        
       </div>
-            <HeroName />
+            {/* <HeroName /> */}
     </div>
   );
 }
