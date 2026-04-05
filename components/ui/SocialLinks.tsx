@@ -72,10 +72,10 @@ function SocialLinks() {
     {
       id: 6,
       name: "Mail",
-      username: "mdtaqui.jhar@gmail.com",
+      username: "hi@taqui.in",
       icon: Mail,
       alt: "Mail",
-      href: "mailto:mdtaqui.jhar@gmail.com",
+      href: "mailto:hi@taqui.in",
     },
 
     {

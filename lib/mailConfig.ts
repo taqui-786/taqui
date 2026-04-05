@@ -1,11 +1,25 @@
 "use server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 interface ContactFormData {
   name: string;
   email: string;
   message: string;
   purpose: string;
+}
+
+const resendApiKey = process.env.RESEND_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
+
+const mailTo = 'hi@taqui.in';
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 // Clean Professional HTML Email Template
@@ -15,6 +29,11 @@ function createContactEmailTemplate({
   message,
   purpose,
 }: ContactFormData): string {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message);
+  const safePurpose = escapeHtml(purpose);
+
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -155,24 +174,24 @@ function createContactEmailTemplate({
             <div class="content">
                 <div class="info-row">
                     <span class="info-label">From</span>
-                    <span class="info-value">${name}</span>
+                    <span class="info-value">${safeName}</span>
                 </div>
                 
                 <div class="info-row">
                     <span class="info-label">Email</span>
                     <span class="info-value">
-                        <a href="mailto:${email}">${email}</a>
+                        <a href="mailto:${safeEmail}">${safeEmail}</a>
                     </span>
                 </div>
                 
                 <div class="info-row">
                     <span class="info-label">Purpose</span>
-                    <span class="info-value">${purpose}</span>
+                    <span class="info-value">${safePurpose}</span>
                 </div>
                 
                 <div class="message-section">
                     <div class="message-label">Message</div>
-                    <div class="message-content">${message}</div>
+                    <div class="message-content">${safeMessage}</div>
                 </div>
             </div>
             
@@ -199,17 +218,10 @@ export async function sendMail({
   message,
   purpose,
 }: ContactFormData) {
-  const { SMPT_HOST, SMPT_USER, SMPT_PASS } = process.env;
-
-  const transport = nodemailer.createTransport({
-    host: SMPT_HOST,
-    port: 587,
-    secure: false,
-    auth: {
-      user: SMPT_USER,
-      pass: SMPT_PASS,
-    },
-  });
+  if (!resendApiKey || !resend) {
+    console.error("Email sending failed: missing RESEND_KEY");
+    return false;
+  }
 
   // Generate HTML email body
   const htmlBody = createContactEmailTemplate({
@@ -223,9 +235,10 @@ export async function sendMail({
   const emailSubject = `New message from ${name} - ${purpose}`;
 
   try {
-    const sendResult = await transport.sendMail({
-      from: "mdtaqui.jhar@gmail.com",
-      to: "mdtaqui.jhar@gmail.com",
+    const { data, error } = await resend.emails.send({
+      from: email,
+      to: [mailTo],
+      replyTo: email,
       subject: emailSubject,
       html: htmlBody,
       text: `
@@ -242,7 +255,12 @@ Received on: ${new Date().toLocaleString()}
       `.trim(),
     });
 
-    return sendResult.accepted.length > 0 ? true : false;
+    if (error) {
+      console.error("Email sending failed:", error);
+      return false;
+    }
+
+    return Boolean(data?.id);
   } catch (error) {
     console.error("Email sending failed:", error);
     return false;

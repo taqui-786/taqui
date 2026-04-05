@@ -34,7 +34,7 @@ export const about = {
   description:
     "Passionate software developer building modern web products with clean architecture, strong UX, and scalable engineering.",
   location: "Ramgarh Cantt, Jharkhand, India",
-  email: "mdtaqui.jhar@gmail.com",
+  email: "hi@taqui.in",
 };
 
 export const heroConfig = {
