@@ -125,7 +125,7 @@ export default function CodingTime() {
   // Loading skeleton — full width to match
   if (isLoading) {
     return (
-      <div className="w-full rounded-lg  p-4">
+      <div className="w-full rounded-lg  p-0">
         <div className="flex items-center gap-3">
           <div className="size-9 animate-pulse rounded-md bg-muted-foreground/15" />
           <div className="flex flex-1 flex-col gap-2">
@@ -156,7 +156,7 @@ export default function CodingTime() {
   const isLive = timeAgo === null;
 
   return (
-    <div className="w-full rounded-lg px-4 py-3">
+    <div className="w-full rounded-lg px-0 py-4">
       <div className="flex items-center justify-between gap-4">
         {/* Left: Status */}
         <div className="flex items-center gap-3 min-w-0">

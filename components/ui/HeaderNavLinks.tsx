@@ -31,10 +31,10 @@ function HeaderNavLinks() {
             exit={{ opacity: 0, width: 0, scale: 0.9 }}
             transition={{ type: "spring", bounce: 0, duration: 0.3 }}
             style={{ originX: 0 }}
-            className="overflow-hidden shrink-0 will-change-auto"
+            className="overflow-hidden shrink-0 will-change-transform"
           >
-            <Link href="/" className="block w-11 h-11">
-              <div className="size-11 rounded-md bg-blue-300 overflow-hidden flex items-end p-0">
+            <Link href="/" className="block ">
+              <div className="size-10 rounded-md bg-blue-300 overflow-hidden flex items-end p-0">
                 <Image
                   src={"/taqui-removebg-preview.png"}
                   alt="logo"
@@ -45,6 +45,7 @@ function HeaderNavLinks() {
                 />
               </div>
             </Link>
+          
           </motion.div>
         )}
       </AnimatePresence>

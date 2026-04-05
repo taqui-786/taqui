@@ -6,8 +6,8 @@ import HeaderNavLinks from "./HeaderNavLinks";
 
 function Header() {
   return (
-    <header className="container mx-auto max-w-full md:max-w-3xl px-4 sticky top-0 z-50 rounded-md py-4 bg-background/95 supports-backdrop-filter:backdrop-blur-sm supports-backdrop-filter:bg-background/80">
-      <div className="flex items-center justify-between">
+    <header className="container mx-auto max-w-full h-14 flex items-center md:max-w-3xl px-4 sticky top-0 z-50 rounded-md py-2 bg-background/95 supports-backdrop-filter:backdrop-blur-sm supports-backdrop-filter:bg-background/80">
+      <div className="flex items-center justify-between w-full">
         <div className="flex gap-4">
           <HeaderNavLinks />
         </div>
