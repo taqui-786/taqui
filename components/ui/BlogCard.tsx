@@ -21,8 +21,8 @@ function BlogCard({blog}: {blog: BlogConfig}) {
           </div>
           <div className="flex gap-2 mt-1 items-center justify-center ">
             <div className="flex gap-1 items-center justify-center text-title border-r pr-2 border-border  ">
-              <HugeiconsIcon icon={ViewIcon} className="size-4" />
-              <span className=" text-xs font-semibold text-title ">{blog.views}</span>
+              <HugeiconsIcon icon={ViewIcon} className="size-4  " />
+              <span className=" text-xs font-semibold  ">{blog.views}</span>
             </div>
             <div className="flex gap-2">
               {blog.tags.map((tag, index) => (

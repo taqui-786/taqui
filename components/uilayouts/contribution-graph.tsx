@@ -164,7 +164,6 @@ export function ContributionGraph({
     return data.reduce((sum, d) => sum + d.count, 0);
   }, [data]);
 
-  const displayYear = endDate.getFullYear();
 
   // Calculate month positions - only for weeks with visible data
   const monthPositions = useMemo(() => {
