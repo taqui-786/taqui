@@ -1,11 +1,12 @@
 import React from "react";
 import { blogConfig } from "../config/blogConfig";
 import BlogCard from "@/components/ui/BlogCard";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowUpRight03Icon } from "@hugeicons/core-free-icons";
 import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import type { Metadata } from "next";
 
-export const metadata = genMeta("/blogs");
+export async function generateMetadata(): Promise<Metadata> {
+  return genMeta("/blogs");
+}
 
 function page() {
   return (

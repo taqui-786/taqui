@@ -4,8 +4,11 @@ import { Accordion } from "@/components/ui/accordion";
 
 import ExperinceAccordian from "@/components/ui/ExperinceAccordian";
 import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import type { Metadata } from "next";
 
-export const metadata = genMeta("/work");
+export async function generateMetadata(): Promise<Metadata> {
+  return genMeta("/work");
+}
 
 function page() {
   return (

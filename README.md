@@ -20,3 +20,30 @@ Here is a list of the main libraries I used to build this project and why I pick
 *   **React Hot Toast**: This shows those nice little pop-up messages when you submit a form.
 *   **Hugeicons**: I chose these icons because they are very clean and look sharp.
 *   **Nodemailer**: This allows the website to actually send emails to my inbox.
+
+## SEO Automation
+
+This project now includes a dynamic SEO keyword system with Vercel Cron:
+
+- Cron endpoint: `/api/cron/seo-keywords`
+- Schedule source: `vercel.json`
+- Cache invalidation: `revalidateTag("seo-keyword-trends-v1")`
+- Keyword sources:
+  - DEV tags API (`https://dev.to/api/tags`)
+  - Hacker News official API (`https://hacker-news.firebaseio.com/v0`)
+
+### Environment Variables
+
+Add this in Vercel Project Settings and your local `.env`:
+
+- `CRON_SECRET`: shared secret used to secure cron calls (`Authorization: Bearer <CRON_SECRET>`)
+- `NEXT_PUBLIC_URL`: canonical production URL (for sitemap/canonical metadata)
+  - For this project, set it to `https://taqui.in`
+
+### Manual Refresh (Local)
+
+With `pnpm dev` running:
+
+```bash
+curl -H "Authorization: Bearer $CRON_SECRET" http://localhost:3000/api/cron/seo-keywords
+```

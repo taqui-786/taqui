@@ -1,4 +1,5 @@
-// Site configuration with proper page metadata structure
+import type { Metadata } from "next";
+import { getSeoKeywordPool } from "@/lib/seo/keyword-intelligence";
 
 export interface PageMeta {
   title: string;
@@ -8,29 +9,45 @@ export interface PageMeta {
   twitterCard?: "summary" | "summary_large_image";
 }
 
-// About/Profile configuration
+export type SitePath =
+  | "/"
+  | "/work"
+  | "/projects"
+  | "/blogs"
+  | "/resume"
+  | "/contact"
+  | "/llm";
+
+export const sitePaths: SitePath[] = [
+  "/",
+  "/work",
+  "/projects",
+  "/blogs",
+  "/resume",
+  "/contact",
+  "/llm",
+];
+
 export const about = {
   name: "Md Taqui Imam",
   title: "Full Stack Developer",
   description:
-    "I am a Passionate Software Developer crafting modern web experiences with clean code and creative solutions.",
-  location: "Ramgarh cantt, Jharkhand, India",
+    "Passionate software developer building modern web products with clean architecture, strong UX, and scalable engineering.",
+  location: "Ramgarh Cantt, Jharkhand, India",
   email: "mdtaqui.jhar@gmail.com",
 };
 
-// Hero section configuration
 export const heroConfig = {
   name: about.name,
   title: about.title,
   tagline: about.description,
 };
 
-// Base site configuration
 export const siteConfig = {
   name: heroConfig.name,
   title: `${heroConfig.name} - Portfolio`,
   description: about.description,
-  url: process.env.NEXT_PUBLIC_URL || "https://taqui.vercel.app",
+  url: process.env.NEXT_PUBLIC_URL || "https://taqui.in",
   ogImage: "/api/og",
   author: {
     name: about.name,
@@ -47,129 +64,166 @@ export const siteConfig = {
     github: "https://github.com/taqui-786",
   },
   keywords: [
-    "portfolio",
-    "developer",
-    "full-stack",
-    "react",
-    "nextjs",
-    "typescript",
-    "web development",
     "md taqui imam",
+    "md taqui imam developer",
     "taqui imam",
+    "taqui",
+    "imam",
+    "taqui in",
+    "taqui.in",
+    "software engineer",
     "software developer",
+    "full stack developer",
+    "web developer",
+    "frontend engineer",
+    "backend engineer",
+    "developer portfolio",
+    "next.js developer",
+    "react developer",
+    "typescript",
+    "javascript",
   ],
 };
 
-// Page-specific metadata
-export const pageMetadata: Record<string, PageMeta> = {
-  // Home page
+export const pageMetadata: Record<SitePath, PageMeta> = {
   "/": {
-    title: `${heroConfig.name} - ${heroConfig.title}`,
-    description: `${about.description} Explore my projects, experience, and technical expertise.`,
+    title: `${heroConfig.name} - Software Engineer & Full Stack Developer`,
+    description:
+      "Portfolio of Md Taqui Imam (Taqui), software engineer and full stack developer building modern products with Next.js, TypeScript, React, and scalable backend systems.",
     keywords: [
-      "portfolio",
-      "developer",
-      "full-stack",
-      "web development",
-      "projects",
+      "full stack developer portfolio",
+      "software developer portfolio",
+      "md taqui imam portfolio",
+      "next.js portfolio",
+      "react portfolio",
     ],
     ogImage: "/api/og",
     twitterCard: "summary_large_image",
   },
-
-  // Work Experience page
   "/work": {
-    title: "Work Experience - Professional Journey",
+    title: "Work Experience - Md Taqui Imam",
     description:
-      "Explore my professional work experience across different companies and roles in software development.",
+      "Professional work experience of Md Taqui Imam across frontend and full stack engineering roles in software product teams.",
     keywords: [
-      "work experience",
-      "career",
-      "professional",
-      "software developer",
-      "employment history",
+      "software engineer experience",
+      "full stack developer experience",
+      "frontend developer experience",
+      "developer resume",
+      "engineering career",
     ],
     ogImage: "/api/og",
     twitterCard: "summary_large_image",
   },
-
-  // Projects page
   "/projects": {
-    title: "Projects - My Work & Projects Portfolio",
+    title: "Projects - Md Taqui Imam",
     description:
-      "Discover my projects and work across different technologies and domains. From web apps to mobile solutions.",
+      "Explore software projects built by Md Taqui Imam using Next.js, React, TypeScript, AI integrations, and modern backend tooling.",
     keywords: [
-      "projects",
-      "portfolio",
-      "web development",
-      "applications",
-      "software",
+      "software projects",
+      "next.js projects",
+      "react projects",
+      "typescript projects",
+      "ai projects",
     ],
     ogImage: "/api/og",
     twitterCard: "summary_large_image",
   },
-
-  // Blog page
   "/blogs": {
-    title: "Blog - Thoughts & Tutorials",
+    title: "Blogs - Md Taqui Imam",
     description:
-      "Read my thoughts, tutorials, and insights on engineering, programming, and web development.",
+      "Technical articles and tutorials by Md Taqui Imam on web development, JavaScript, React, Next.js, and software engineering.",
     keywords: [
-      "blog",
-      "tutorials",
-      "programming",
-      "web development",
-      "technical writing",
+      "developer blog",
+      "web development blog",
+      "javascript blog",
+      "react tutorials",
+      "next.js articles",
     ],
     ogImage: "/api/og",
     twitterCard: "summary_large_image",
   },
-  // resume page
   "/resume": {
-    title: "Resume - Professional Journey",
+    title: "Resume - Md Taqui Imam",
     description:
-      "Explore my professional work experience across different companies and roles in software development.",
+      "Resume of Md Taqui Imam covering software engineering experience, technical skills, and product development accomplishments.",
     keywords: [
-      "work experience",
-      "career",
-      "professional",
-      "software developer",
-      "employment history",
+      "developer resume",
+      "software engineer resume",
+      "full stack resume",
+      "technical skills",
+      "engineering profile",
     ],
     ogImage: "/api/og",
     twitterCard: "summary_large_image",
   },
-  // contact page
   "/contact": {
-    title: "Contact - Get in Touch",
+    title: "Contact - Md Taqui Imam",
     description:
-      "Get in touch with me through the contact form or find my contact information.",
+      "Contact Md Taqui Imam for software engineering collaborations, freelance work, consulting, and product development projects.",
     keywords: [
-      "contact",
-      "get in touch",
-      "contact information",
-      "email",
-      "phone",
+      "contact developer",
+      "hire software engineer",
+      "freelance developer",
+      "project collaboration",
+      "software consulting",
+    ],
+    ogImage: "/api/og",
+    twitterCard: "summary_large_image",
+  },
+  "/llm": {
+    title: "LLM Context - Md Taqui Imam",
+    description:
+      "Structured profile and portfolio context for AI systems covering projects, skills, experience, and technical writing.",
+    keywords: [
+      "llm context",
+      "developer profile data",
+      "portfolio structured data",
+      "ai readable portfolio",
+      "machine readable resume",
     ],
     ogImage: "/api/og",
     twitterCard: "summary_large_image",
   },
 };
 
-// Helper function to get metadata for a specific page
 export function getPageMetadata(pathname: string): PageMeta {
-  return pageMetadata[pathname] || pageMetadata["/"];
+  if (pathname in pageMetadata) {
+    return pageMetadata[pathname as SitePath];
+  }
+  return pageMetadata["/"];
 }
 
-// Helper function to generate complete metadata object for Next.js
-export function generateMetadata(pathname: string) {
+function dedupeKeywords(keywords: string[]): string[] {
+  const seen = new Set<string>();
+  const output: string[] = [];
+
+  for (const keyword of keywords) {
+    const normalized = keyword.trim().toLowerCase();
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    output.push(keyword.trim());
+  }
+
+  return output;
+}
+
+export async function generateMetadata(pathname: string): Promise<Metadata> {
   const pageMeta = getPageMetadata(pathname);
+  const dynamicKeywords = await getSeoKeywordPool();
+  const mergedKeywords = dedupeKeywords([
+    ...(pageMeta.keywords ?? []),
+    ...siteConfig.keywords,
+    ...dynamicKeywords,
+  ]).slice(0, 30);
+
+  const isProduction = process.env.VERCEL_ENV === "production";
+  const shouldIndex = isProduction || process.env.NODE_ENV !== "production";
 
   return {
     metadataBase: new URL(siteConfig.url),
     title: pageMeta.title,
     description: pageMeta.description,
-    keywords: pageMeta.keywords?.join(", "),
+    keywords: mergedKeywords,
     authors: [{ name: siteConfig.author.name }],
     creator: siteConfig.author.name,
     openGraph: {
@@ -195,13 +249,13 @@ export function generateMetadata(pathname: string) {
       images: [pageMeta.ogImage || siteConfig.ogImage],
     },
     robots: {
-      index: true,
-      follow: true,
+      index: shouldIndex,
+      follow: shouldIndex,
       googleBot: {
-        index: true,
-        follow: true,
+        index: shouldIndex,
+        follow: shouldIndex,
         "max-video-preview": -1,
-        "max-image-preview": "large" as const,
+        "max-image-preview": "large",
         "max-snippet": -1,
       },
     },
@@ -211,7 +265,48 @@ export function generateMetadata(pathname: string) {
   };
 }
 
-// Legacy export for backward compatibility
+export function getPersonStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: about.name,
+    alternateName: ["Taqui", "Md Taqui", "Taqui Imam", "Md Taqui Imam"],
+    jobTitle: about.title,
+    description: about.description,
+    email: `mailto:${about.email}`,
+    url: siteConfig.url,
+    sameAs: [
+      siteConfig.socialLinks.github,
+      siteConfig.socialLinks.linkedin,
+      siteConfig.socialLinks.twitter,
+    ],
+    knowsAbout: [
+      "Software Engineering",
+      "Full Stack Development",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Backend Development",
+      "AI Application Development",
+    ],
+  };
+}
+
+export function getWebsiteStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.title,
+    alternateName: ["Taqui", "Taqui Portfolio", "Md Taqui Imam Portfolio"],
+    url: siteConfig.url,
+    description: siteConfig.description,
+    author: {
+      "@type": "Person",
+      name: about.name,
+    },
+  };
+}
+
 export const myConfig = {
   name: about.name,
   title: about.title,

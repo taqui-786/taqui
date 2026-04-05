@@ -4,7 +4,6 @@ import {
   Geist_Mono,
   Instrument_Serif,
   Hanken_Grotesk,
-  
 } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/Header";
@@ -14,7 +13,11 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import UmamiAnalytics from "@/components/analytics/UmamiAnalytics";
 import QueryProvider from "@/components/providers/QueryProvider";
 import Footer from "@/components/ui/Footer";
-import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import {
+  generateMetadata as genMeta,
+  getPersonStructuredData,
+  getWebsiteStructuredData,
+} from "@/app/config/siteConfig";
 import { Toaster } from "react-hot-toast";
 
 const instrumentSerif = Instrument_Serif({
@@ -38,13 +41,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = genMeta("/");
+export async function generateMetadata(): Promise<Metadata> {
+  return genMeta("/");
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [getPersonStructuredData(), getWebsiteStructuredData()],
+  };
+
   return (
     <ViewTransitions>
       <html
@@ -62,16 +72,20 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <QueryProvider>
-              {/* <ReactLenis root> */}
-                <main className="min-h-dvh">
-                  <Header />
-                  {children}
-                  <Footer />
-                </main>
-              {/* </ReactLenis> */}
+              <main className="min-h-dvh">
+                <Header />
+                {children}
+                <Footer />
+              </main>
             </QueryProvider>
           </ThemeProvider>
-          <Toaster/>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(structuredData),
+            }}
+          />
+          <Toaster />
           <UmamiAnalytics />
         </body>
       </html>

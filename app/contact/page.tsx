@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Calendar03Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import React from "react";
+import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return genMeta("/contact");
+}
 
 function page() {
   return (

@@ -6,6 +6,7 @@ export async function GET(request: Request) {
   try {
     const { origin } = new URL(request.url);
     const avatarUrl = `${origin}/taqui_full_img.png`;
+    const siteHost = new URL(process.env.NEXT_PUBLIC_URL || origin).host;
 
     // Theme colors (dark mode)
     const bgColor = "#ffffff";
@@ -144,7 +145,7 @@ export async function GET(request: Request) {
                 textUnderlineOffset: "5px",
               }}
             >
-              taqui.vercel.app
+              {siteHost}
             </div>
           </div>
           <div

@@ -3,16 +3,12 @@ import { allProjects } from "@/app/config/projectConfig";
 import { experienceConfig } from "@/app/config/experienceConfig";
 import { blogConfig } from "@/app/config/blogConfig";
 import { techStack } from "@/app/config/techstack";
+import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "LLM Context - Md Taqui Imam Portfolio Data",
-  description:
-    "Structured data page for AI/LLM consumption. Contains complete portfolio information including projects, experience, skills, and blog posts.",
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return genMeta("/llm");
+}
 
 export default function LLMPage() {
   // Generate structured plain text content

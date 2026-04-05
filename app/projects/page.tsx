@@ -1,8 +1,11 @@
 import ProjectFeed from "@/components/projectPage/ProjectFeed";
 import React from "react";
 import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import type { Metadata } from "next";
 
-export const metadata = genMeta("/projects");
+export async function generateMetadata(): Promise<Metadata> {
+  return genMeta("/projects");
+}
 
 function page() {
   return (
