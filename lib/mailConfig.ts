@@ -236,7 +236,7 @@ export async function sendMail({
 
   try {
     const { data, error } = await resend.emails.send({
-      from: email,
+      from: mailTo,
       to: [mailTo],
       replyTo: email,
       subject: emailSubject,
