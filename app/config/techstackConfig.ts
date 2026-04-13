@@ -4,7 +4,9 @@ export const techstackConfig = [
   // Row 1 - Frontend Frameworks (balanced mix of short & medium names)
   techStack.nextjs,
   techStack.reactjs,
+  techStack.python,
   techStack.typescript,
+
   techStack.tailwindcss,
   techStack.reactnavigation,
   techStack.shadcnui,
@@ -19,6 +21,7 @@ export const techstackConfig = [
 
   // Row 3 - Backend & Databases (short-medium names)
   techStack.express,
+  techStack.fastapi,
   techStack.postgres,
   techStack.supabase,
   techStack.prisma,

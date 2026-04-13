@@ -28,7 +28,7 @@ import {
   PostmanIcon,
   NginxIcon,
   GithubActionsIcon,
-  PointIcon,
+  PointIcon,PythonIcon,FastapiIcon
 } from "@/components/customIcons";
 
 export const techStack = {
@@ -46,6 +46,16 @@ export const techStack = {
     name: "Reactjs",
     icon: FileTypeReactjsIcon,
     link: "https://react.dev/",
+  },
+  python: {
+    name: "Python",
+    icon: PythonIcon,
+    link: "https://www.python.org/",
+  },
+  fastapi: {
+    name: "FastAPI",
+    icon: FastapiIcon,
+    link: "https://fastapi.tiangolo.com/",
   },
   nextjs: { name: "Nextjs", icon: NextjsIcon, link: "https://nextjs.org/" },
   nodejs: { name: "Nodejs", icon: NodejsIconIcon, link: "https://nodejs.org/" },

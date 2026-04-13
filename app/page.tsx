@@ -27,8 +27,7 @@ export default function Page() {
         {/* Contribution Graph */}
         <HeroContributionGraph />
         <CodingTime/>
-           {/* Tech stack Section */}
-        {/* <TechStackSection /> */}
+   
         {/* Projects section */}
         <ProjectsSection />
         {/* Experience section */}
@@ -36,6 +35,8 @@ export default function Page() {
      
         {/* Blog section */}
         <BlogSection />
+                {/* Tech stack Section */}
+        <TechStackSection />
         {/* Quote */}
         <QuoteSection />
       </div>

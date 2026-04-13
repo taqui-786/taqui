@@ -4,7 +4,7 @@ import { VisualStudioCodeIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useQuery } from "@tanstack/react-query";
 import { CustomBadge } from "@/components/ui/custom-badge";
-import { TypescriptIcon, JavascriptIcon, CssIcon, FileTypeReactjsIcon, VscodeIcon } from "@/components/customIcons";
+import { TypescriptIcon, JavascriptIcon, CssIcon, FileTypeReactjsIcon, VscodeIcon,PythonIcon } from "@/components/customIcons";
 
 interface WakaTimeGrandTotal {
   digital: string;
@@ -111,6 +111,7 @@ function getIconForLanguage(langName: string) {
   if (name.includes("javascript")) return <JavascriptIcon size={16} />;
   if (name.includes("css")) return <CssIcon size={16} />;
   if (name.includes("react")) return <FileTypeReactjsIcon size={16} />;
+  if (name.includes("python")) return <PythonIcon size={16} />;
   return null;
 }
 
