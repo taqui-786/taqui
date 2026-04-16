@@ -55,6 +55,8 @@ interface WakaTimeResponse {
     seconds: number;
   };
   data: WakaTimeDayData[];
+  /** Real last-heartbeat timestamp from /users/current — ISO 8601 UTC */
+  last_heartbeat_at: string | null;
 }
 
 async function fetchWakaTimeData(): Promise<WakaTimeResponse> {
@@ -63,13 +65,18 @@ async function fetchWakaTimeData(): Promise<WakaTimeResponse> {
   return res.json();
 }
 
-function getTimeAgo(endTimeStr: string): string | null {
-  const endTime = new Date(endTimeStr);
+/**
+ * Returns null when the timestamp is within the last 5 minutes (= actively coding),
+ * otherwise returns a human-readable "X ago" string.
+ */
+function getTimeAgo(isoTimestamp: string | null): string | null {
+  if (!isoTimestamp) return "a while ago";
+  const lastSeen = new Date(isoTimestamp);
   const now = new Date();
-  const diffMs = now.getTime() - endTime.getTime();
+  const diffMs = now.getTime() - lastSeen.getTime();
   const diffMinutes = Math.floor(diffMs / 60000);
 
-  if (diffMinutes < 5) return null;
+  if (diffMinutes < 5) return null; // active
   if (diffMinutes < 60) return `${diffMinutes} min ago`;
   const diffHours = Math.floor(diffMinutes / 60);
   if (diffHours < 24) return `${diffHours} hr${diffHours > 1 ? "s" : ""} ago`;
@@ -98,11 +105,14 @@ function getTopProject(data: WakaTimeResponse): string | null {
   return null;
 }
 
-function getLatestEndTime(data: WakaTimeResponse): string | null {
-  for (let i = data.data.length - 1; i >= 0; i--) {
-    if (data.data[i].grand_total.total_seconds > 0) return data.data[i].range.end;
-  }
-  return null;
+/**
+ * Returns the grand_total text for today only, by matching range.date to today's
+ * local YYYY-MM-DD string. Falls back to "0 secs" if no entry is found.
+ */
+function getTodayTotalText(data: WakaTimeResponse): string {
+  const todayStr = new Date().toLocaleDateString("en-CA"); // YYYY-MM-DD in local time
+  const todayEntry = data.data.find((d) => d.range.date === todayStr);
+  return todayEntry?.grand_total?.text || "0 secs";
 }
 
 function getIconForLanguage(langName: string) {
@@ -149,11 +159,12 @@ export default function CodingTime() {
     );
   }
 
-  const latestEndTime = getLatestEndTime(data);
   const editorName = getEditorName(data);
-  const totalText = data.cumulative_total?.text ?? "0 secs";
+  // Use today's grand_total for accurate daily coding time
+  const totalText = getTodayTotalText(data);
   const topLanguage = getTopLanguage(data);
-  const timeAgo = latestEndTime ? getTimeAgo(latestEndTime) : "a while ago";
+  // Use the real last heartbeat timestamp for live/offline detection
+  const timeAgo = getTimeAgo(data.last_heartbeat_at ?? null);
   const isLive = timeAgo === null;
 
   return (

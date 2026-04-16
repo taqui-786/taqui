@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+const WAKATIME_BASE = "https://wakatime.com/api/v1";
+
 export async function GET() {
   const apiKey = process.env.WAKATIME_API_KEY;
 
@@ -10,33 +12,43 @@ export async function GET() {
     );
   }
 
-  // Build today's date range in YYYY-MM-DD format
-  const today = new Date();
-  const todayStr = today.toISOString().split("T")[0];
-  // Also include yesterday to get a broader view
-  const yesterday = new Date(today);
-  yesterday.setDate(yesterday.getDate() - 1);
-  const yesterdayStr = yesterday.toISOString().split("T")[0];
+  const authHeader = `Basic ${Buffer.from(apiKey).toString("base64")}`;
 
-  const url = `https://wakatime.com/api/v1/users/current/summaries?start=${yesterdayStr}&end=${todayStr}`;
+  // Only fetch today so cumulative_total reflects today's coding time only
+  const todayStr = new Date().toISOString().split("T")[0];
+  const summariesUrl = `${WAKATIME_BASE}/users/current/summaries?start=${todayStr}&end=${todayStr}`;
+  // Fetch user profile to get real last_heartbeat_at (actual last activity timestamp)
+  const userUrl = `${WAKATIME_BASE}/users/current`;
 
   try {
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Basic ${Buffer.from(apiKey).toString("base64")}`,
-      },
-      next: { revalidate: 300 }, // Cache on server for 5 minutes
-    });
+    const [summariesRes, userRes] = await Promise.all([
+      fetch(summariesUrl, {
+        headers: { Authorization: authHeader },
+        next: { revalidate: 300 },
+      }),
+      fetch(userUrl, {
+        headers: { Authorization: authHeader },
+        next: { revalidate: 60 }, // user profile: refresh every minute
+      }),
+    ]);
 
-    if (!response.ok) {
+    if (!summariesRes.ok) {
       return NextResponse.json(
-        { error: "Failed to fetch WakaTime data" },
-        { status: response.status }
+        { error: "Failed to fetch WakaTime summaries" },
+        { status: summariesRes.status }
       );
     }
 
-    const data = await response.json();
-    return NextResponse.json(data);
+    const summariesData = await summariesRes.json();
+
+    // Attach last_heartbeat_at from user profile when available
+    let lastHeartbeatAt: string | null = null;
+    if (userRes.ok) {
+      const userData = await userRes.json();
+      lastHeartbeatAt = userData?.data?.last_heartbeat_at ?? null;
+    }
+
+    return NextResponse.json({ ...summariesData, last_heartbeat_at: lastHeartbeatAt });
   } catch {
     return NextResponse.json(
       { error: "Failed to fetch WakaTime data" },
