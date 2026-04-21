@@ -24,11 +24,11 @@ export async function GET() {
     const [summariesRes, userRes] = await Promise.all([
       fetch(summariesUrl, {
         headers: { Authorization: authHeader },
-        next: { revalidate: 300 },
+        cache: "no-store", // always fetch fresh data from WakaTime
       }),
       fetch(userUrl, {
         headers: { Authorization: authHeader },
-        next: { revalidate: 60 }, // user profile: refresh every minute
+        cache: "no-store", // always fetch fresh data from WakaTime
       }),
     ]);
 
@@ -48,7 +48,15 @@ export async function GET() {
       lastHeartbeatAt = userData?.data?.last_heartbeat_at ?? null;
     }
 
-    return NextResponse.json({ ...summariesData, last_heartbeat_at: lastHeartbeatAt });
+    return NextResponse.json(
+      { ...summariesData, last_heartbeat_at: lastHeartbeatAt },
+      {
+        headers: {
+          // Tell browsers, CDNs, and proxies never to cache this response
+          "Cache-Control": "no-store, max-age=0",
+        },
+      }
+    );
   } catch {
     return NextResponse.json(
       { error: "Failed to fetch WakaTime data" },

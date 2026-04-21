@@ -60,7 +60,7 @@ interface WakaTimeResponse {
 }
 
 async function fetchWakaTimeData(): Promise<WakaTimeResponse> {
-  const res = await fetch("/api/wakatime");
+  const res = await fetch("/api/wakatime", { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to fetch WakaTime data");
   return res.json();
 }
