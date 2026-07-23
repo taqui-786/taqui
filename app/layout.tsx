@@ -10,7 +10,7 @@ import Header from "@/components/ui/Header";
 import { ViewTransitions } from "next-view-transitions";
 
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import UmamiAnalytics from "@/components/analytics/UmamiAnalytics";
+import CloudflareAnalytics from "@/components/analytics/CloudflareAnalytics";
 import QueryProvider from "@/components/providers/QueryProvider";
 import Footer from "@/components/ui/Footer";
 import {
@@ -86,7 +86,7 @@ export default function RootLayout({
             }}
           />
           <Toaster />
-          <UmamiAnalytics />
+          <CloudflareAnalytics />
         </body>
       </html>
     </ViewTransitions>

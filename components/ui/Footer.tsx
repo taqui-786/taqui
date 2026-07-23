@@ -1,4 +1,4 @@
-import { getPageViews } from "@/lib/umami";
+import { getPageViews } from "@/lib/cloudflare";
 import { Eye, SolidLine01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import React from "react";
