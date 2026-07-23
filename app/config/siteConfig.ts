@@ -216,8 +216,8 @@ export async function generateMetadata(pathname: string): Promise<Metadata> {
     ...dynamicKeywords,
   ]).slice(0, 30);
 
-  const isProduction = process.env.VERCEL_ENV === "production";
-  const shouldIndex = isProduction || process.env.NODE_ENV !== "production";
+  const isPreview = process.env.VERCEL_ENV === "preview";
+  const shouldIndex = !isPreview;
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -304,6 +304,78 @@ export function getWebsiteStructuredData() {
       "@type": "Person",
       name: about.name,
     },
+  };
+}
+
+export function getBreadcrumbStructuredData(pathname: string, pageTitle: string) {
+  const baseUrl = siteConfig.url.replace(/\/$/, "");
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: baseUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: pageTitle,
+        item: `${baseUrl}${pathname}`,
+      },
+    ],
+  };
+}
+
+export function getProjectsStructuredData(projects: Array<{ id: number; name: string; description: string; live: string; href: string; technologies: Array<{ name: string }> }>) {
+  const baseUrl = siteConfig.url.replace(/\/$/, "");
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Software Projects by Md Taqui Imam",
+    url: `${baseUrl}/projects`,
+    itemListElement: projects.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: p.name,
+        description: p.description,
+        url: p.live || p.href,
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Web",
+        author: {
+          "@type": "Person",
+          name: about.name,
+        },
+      },
+    })),
+  };
+}
+
+export function getBlogsStructuredData(blogs: Array<{ title: string; date: string; tags: string[]; link: string }>) {
+  const baseUrl = siteConfig.url.replace(/\/$/, "");
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Technical Articles by Md Taqui Imam",
+    url: `${baseUrl}/blogs`,
+    itemListElement: blogs.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "TechArticle",
+        headline: b.title,
+        url: b.link,
+        author: {
+          "@type": "Person",
+          name: about.name,
+        },
+        keywords: b.tags.join(", "),
+      },
+    })),
   };
 }
 

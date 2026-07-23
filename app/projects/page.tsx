@@ -1,6 +1,11 @@
 import ProjectFeed from "@/components/projectPage/ProjectFeed";
 import React from "react";
-import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import {
+  generateMetadata as genMeta,
+  getBreadcrumbStructuredData,
+  getProjectsStructuredData,
+} from "@/app/config/siteConfig";
+import { allProjects } from "@/app/config/projectConfig";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -8,8 +13,22 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 function page() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      getBreadcrumbStructuredData("/projects", "Projects"),
+      getProjectsStructuredData(allProjects),
+    ],
+  };
+
   return (
     <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto pt-16 md:py-16 animate-fade-in-blur">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className=" flex flex-col gap-4 items-center justify-center border-b pb-8 ">
         <h1 className="md:text-5xl text-4xl  text-title font-bold text-center font-instrument-serif tracking-wider italic ">
           All Projects

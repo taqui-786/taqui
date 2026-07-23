@@ -1,7 +1,11 @@
 import React from "react";
 import { blogConfig } from "../config/blogConfig";
 import BlogCard from "@/components/ui/BlogCard";
-import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import {
+  generateMetadata as genMeta,
+  getBreadcrumbStructuredData,
+  getBlogsStructuredData,
+} from "@/app/config/siteConfig";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -9,8 +13,22 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 function page() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      getBreadcrumbStructuredData("/blogs", "Blogs"),
+      getBlogsStructuredData(blogConfig),
+    ],
+  };
+
   return (
     <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto py-16 animate-fade-in-blur">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className=" flex flex-col gap-4 items-center justify-center border-b pb-8 ">
         <h1 className="md:text-5xl text-4xl  text-title font-bold text-center font-instrument-serif tracking-wider italic ">
           My Blogs

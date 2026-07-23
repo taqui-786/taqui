@@ -4,7 +4,8 @@ import type { NextRequest } from "next/server";
 const CANONICAL_HOST = "taqui.in";
 
 export function middleware(request: NextRequest) {
-  if (process.env.VERCEL_ENV !== "production") {
+  const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL_ENV === "production";
+  if (!isProd) {
     return NextResponse.next();
   }
 

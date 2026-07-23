@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Calendar03Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import React from "react";
-import { generateMetadata as genMeta } from "@/app/config/siteConfig";
+import {
+  generateMetadata as genMeta,
+  getBreadcrumbStructuredData,
+} from "@/app/config/siteConfig";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -11,8 +14,19 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 function page() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [getBreadcrumbStructuredData("/contact", "Contact")],
+  };
+
   return (
     <div className="container mx-auto max-w-full md:max-w-3xl px-4 h-auto py-16 animate-fade-in-blur">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className="flex flex-col gap-4 items-center justify-center border-b pb-8">
         <h1 className="md:text-5xl text-4xl text-title font-bold text-center font-instrument-serif tracking-wider italic">
           Contact Me
