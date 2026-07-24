@@ -4,26 +4,27 @@
 
 Check out the code for my tech stack here: [Tech Stack Config](/app/config/techstackConfig.ts)
 
-## Libraries I Used
+## Libraries & Services Used
 
-Here is a list of the main libraries I used to build this project and why I picked them:
+Here is a list of the main libraries and services I used to build this project:
 
-*   **Next.js 16**: I used this because it is the best framework for building fast and modern websites.
-*   **React 19**: This is the main tool I used to build all the components you see on the screen.
-*   **TypeScript**: I used this to stop me from making silly mistakes in my code.
-*   **Tailwind CSS**: This let me style the website really fast and make it look professional.
-*   **Framer Motion**: I added this to make cool animations so the site feels fun and alive.
-*   **Lenis**: This makes the scrolling feel buttery smooth and premium, which I really like.
-*   **Next View Transitions**: I used this so the page changes look seamless and not clunky.
-*   **React Hook Form**: This made building the contact form way easier than doing it from scratch.
-*   **Zod**: I used this to double-check that the info people type in forms is correct.
-*   **React Hot Toast**: This shows those nice little pop-up messages when you submit a form.
-*   **Hugeicons**: I chose these icons because they are very clean and look sharp.
-*   **Nodemailer**: This allows the website to actually send emails to my inbox.
+*   **Next.js 16**: Framework for building fast and modern web applications.
+*   **React 19**: Frontend UI library for building component interfaces.
+*   **TypeScript**: Static type-checking for code quality and reliability.
+*   **Tailwind CSS**: Utility-first CSS framework for styling.
+*   **Cloudflare Web Analytics**: Privacy-first, free visitor analytics and live page view tracking via Cloudflare GraphQL API.
+*   **Framer Motion**: Motion library for smooth interactive animations.
+*   **Lenis**: Smooth scrolling engine.
+*   **Next View Transitions**: Smooth page transition effects.
+*   **React Hook Form**: Form state management and validation handling.
+*   **Zod**: Schema validation for client-side forms and API requests.
+*   **React Hot Toast**: Toast notifications interface.
+*   **Hugeicons**: Clean vector icon suite.
+*   **Nodemailer**: Email sending service integration.
 
 ## SEO Automation
 
-This project now includes a dynamic SEO keyword system with Vercel Cron:
+This project includes a dynamic SEO keyword system with Vercel Cron:
 
 - Cron endpoint: `/api/cron/seo-keywords`
 - Schedule source: `vercel.json`
@@ -34,11 +35,15 @@ This project now includes a dynamic SEO keyword system with Vercel Cron:
 
 ### Environment Variables
 
-Add this in Vercel Project Settings and your local `.env`:
+Add these variables in your Vercel Project Settings and local `.env`:
 
-- `CRON_SECRET`: shared secret used to secure cron calls (`Authorization: Bearer <CRON_SECRET>`)
-- `NEXT_PUBLIC_URL`: canonical production URL (for sitemap/canonical metadata)
-  - For this project, set it to `https://taqui.in`
+- `NEXT_PUBLIC_URL`: Canonical production URL (`https://taqui.in`)
+- `CRON_SECRET`: Shared secret used to secure cron calls (`Authorization: Bearer <CRON_SECRET>`)
+- `NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN`: Cloudflare Web Analytics beacon token for tracking
+- `CLOUDFLARE_API_TOKEN`: Cloudflare API token (`Account Analytics: Read` scope) for querying page views
+- `CLOUDFLARE_ACCOUNT_ID`: Cloudflare Account ID for GraphQL queries
+- `CLOUDFLARE_ZONE_ID`: Cloudflare Zone ID (optional fallback for domain proxy stats)
+- `CLOUDFLARE_SITE_TAG`: Cloudflare Web Analytics Site Tag (optional filter)
 
 ### Manual Refresh (Local)
 
