@@ -337,53 +337,21 @@ export const HeroContributionGraph = () => {
   );
   const [isLoading, setIsLoading] = useState(true);
 
-  const apiUrl = "https://github-contributions-api.deno.dev";
+  const apiUrl = "https://github-contributions-api.jogruber.de/v4";
   const username = "taqui-786";
 
-  type GitHubContribution = {
-    color: string;
-    contributionCount: number;
-    contributionLevel: string;
-    date: string;
-  };
-
   type GitHubAPIResponse = {
-    contributions: GitHubContribution[][];
-    totalContributions: number;
-  };
-
-  const mapContributionLevel = (level: string): number => {
-    switch (level) {
-      case "NONE":
-        return 0;
-      case "FIRST_QUARTILE":
-        return 1;
-      case "SECOND_QUARTILE":
-        return 2;
-      case "THIRD_QUARTILE":
-        return 3;
-      case "FOURTH_QUARTILE":
-        return 4;
-      default:
-        return 0;
-    }
+    total: Record<string, number>;
+    contributions: ContributionData[];
   };
 
   const fetchGithubData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`${apiUrl}/${username}.json`);
+      const response = await fetch(`${apiUrl}/${username}`);
       const data: GitHubAPIResponse = await response.json();
 
-      const transformedData: ContributionData[] = data.contributions
-        .flat()
-        .map((item) => ({
-          date: item.date,
-          count: item.contributionCount,
-          level: mapContributionLevel(item.contributionLevel),
-        }));
-
-      setContributionData(transformedData);
+      setContributionData(data.contributions);
     } catch (error) {
       console.error("Failed to fetch GitHub contribution data:", error);
       setContributionData([]);
