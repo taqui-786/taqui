@@ -14,7 +14,7 @@ function ProjectsSection() {
           <h2 className="md:text-4xl text-3xl text-title font-medium font-instrument-serif italic  tracking-wider shrink-0">
             My Projects
           </h2>
-          <div className="w-full h-[2px] bg-muted-foreground/30 grow"></div>
+          <div className="w-full h-0.5 bg-muted-foreground/30 grow"></div>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">

@@ -50,30 +50,7 @@ export const allProjects: ProjectData[] = [
       techStack.openai,
     ],
   },
-  {
-    id: 2,
-    name: "Snapgroov",
-    href: "https://github.com/taqui-786/Snapgroove",
-    live: "https://snapgroov.vercel.app/",
-    createdAt: "09-12-2025",
-    featured: true,
-    banner: "/project_banners/snapgroov_banner.png",
-    description:
-      "Make your screenshots look less like a cry for help. Add shadows, gradients, and device frames in one click. It’s the easiest way to make your work look expensive.",
-    features: [
-      "Add shadows, gradients, and device frames in one click",
-      "Supports multiple devices",
-      "No sign-up, no credit card required No limits",
-      "smooth image export in you device",
-      "Modern UI components styled with shadcn-ui and Tailwind CSS",
-    ],
-    technologies: [
-      techStack.nextjs,
-      techStack.typescript,
-      techStack.tailwindcss,
-      techStack.shadcnui,
-    ],
-  },
+
   {
     id: 3,
     name: "Wryte",
@@ -98,10 +75,10 @@ export const allProjects: ProjectData[] = [
     technologies: [
       techStack.nextjs,
       techStack.typescript,
-      techStack.oauth,
+      techStack.python,
+      techStack.fastapi,
       techStack.drizzle,
       techStack.openai,
-      techStack.tailwindcss,
       techStack.shadcnui,
       techStack.tanstackquery,
       techStack.etc,
@@ -188,6 +165,30 @@ export const allProjects: ProjectData[] = [
       "Built with Next.js 14 framework",
       "Authentication powered by Next-Auth",
       "Data stored in Supabase",
+      "Modern UI components styled with shadcn-ui and Tailwind CSS",
+    ],
+    technologies: [
+      techStack.nextjs,
+      techStack.typescript,
+      techStack.tailwindcss,
+      techStack.shadcnui,
+    ],
+  },
+    {
+    id: 2,
+    name: "Snapgroov",
+    href: "https://github.com/taqui-786/Snapgroove",
+    live: "https://snapgroov.vercel.app/",
+    createdAt: "09-12-2025",
+    featured: true,
+    banner: "/project_banners/snapgroov_banner.png",
+    description:
+      "Make your screenshots look less like a cry for help. Add shadows, gradients, and device frames in one click. It’s the easiest way to make your work look expensive.",
+    features: [
+      "Add shadows, gradients, and device frames in one click",
+      "Supports multiple devices",
+      "No sign-up, no credit card required No limits",
+      "smooth image export in you device",
       "Modern UI components styled with shadcn-ui and Tailwind CSS",
     ],
     technologies: [
