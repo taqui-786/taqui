@@ -91,7 +91,7 @@ export const allProjects: ProjectData[] = [
     live: "https://drawva.vercel.app",
     createdAt: "08-08-2026",
     featured: true,
-    banner: "",
+    banner: "/project_banners/drawva_banner.png",
     description:
       "A tile-based infinite canvas powered by a multimodal AI perception agent. Draw sketches, wireframes, math, or notes, and the AI visually inspects your canvas to generate interactive diagrams, executable code, formulas, and sandboxed applets.",
     features: [
