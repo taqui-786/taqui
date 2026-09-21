@@ -19,7 +19,7 @@ export const allProjects: ProjectData[] = [
     id: 17,
     name: "Mascen",
     href: "https://github.com/taqui-786/mascot",
-    live: "https://mascen.app",
+    live: "https://mascen.vercel.app",
     createdAt: "20-09-2026",
     featured: true,
     banner: "/project_banners/mascen_banner.png",
