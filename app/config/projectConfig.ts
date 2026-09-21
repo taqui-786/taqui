@@ -16,6 +16,41 @@ export type ProjectData = {
 
 export const allProjects: ProjectData[] = [
   {
+    id: 17,
+    name: "Mascen",
+    href: "https://github.com/taqui-786/mascot",
+    live: "https://mascen.app",
+    createdAt: "20-09-2026",
+    featured: true,
+    banner: "/project_banners/mascen_banner.png",
+    description:
+      "The open-source interactive AI mascot engine & brand studio. Mascen brings digital interfaces to life with cursor-aware desktop and web mascots powered by dual 3×3 sprite atlases, real-time physics, zero-clutter logo generation, and a drop-in CLI runtime.",
+    features: [
+      "Dual 3×3 Sprite Atlas Architecture - Zero-dependency runtime mapping 9 head directions and 9 reactive emotional states without layout recalculation or frame drops",
+      "Real-Time Interaction & Physics - Smooth cursor tracking across 9 directional angles, physical spring boop squash-and-stretch, dizzy state, and idle sleep mode",
+      "One-Command CLI Drop-in (mascot-taqui) - Drop interactive mascots into Next.js, React, Vue, Svelte, Astro, or vanilla web apps in seconds via npx mascot-taqui add",
+      "Automated Character Generation Pipeline - Dual-synthesis AI pipeline preserving character consistency across sheets with OpenCV morphological alpha extraction",
+      "3×3 Mascot Logo Studio - Dedicated 9-variant logo matrix generator for founders and creators with clean transparent alpha channels and zero typography clutter",
+      "Interactive Logo Workbench - Real-time canvas backdrop switcher, badge framing, rotation, and 1-click lossless PNG/WebP exports with community feed",
+      "Bring Your Own Key (BYOK) - Open, no-auth, user-owned architecture supporting OpenAI, Google Gemini, and OpenRouter with local client-side key storage",
+      "Production API Security - In-memory sliding window rate limiting, strict SSRF protection, and security headers protecting compute and serverless database pools",
+      "Cloud Persistence & Offline Cache - Data stored in Neon PostgreSQL and managed with Drizzle ORM, with Cloudflare R2 and client-side IndexedDB offline fallback",
+      "Modern UI & Design System - Styled with shadcn-ui, Tailwind CSS v4, Motion animations, and Hugeicons",
+    ],
+    technologies: [
+      techStack.nextjs,
+      techStack.typescript,
+      techStack.reactjs,
+      techStack.tailwindcss,
+      techStack.shadcnui,
+      techStack.python,
+      techStack.drizzle,
+      techStack.postgres,
+      techStack.tanstackquery,
+      techStack.openai,
+    ],
+  },
+  {
     id: 1,
     name: "Tweetz",
     href: "https://tweetz.app/",
@@ -214,7 +249,7 @@ export const allProjects: ProjectData[] = [
     href: "https://github.com/taqui-786/Snapgroove",
     live: "https://snapgroov.vercel.app/",
     createdAt: "09-12-2025",
-    featured: false,
+    featured: true,
     banner: "/project_banners/snapgroov_banner.png",
     description:
       "Make your screenshots look less like a cry for help. Add shadows, gradients, and device frames in one click. It’s the easiest way to make your work look expensive.",

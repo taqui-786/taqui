@@ -20,6 +20,7 @@ function ProjectsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
         {allProjects
           .filter((project) => project.featured)
+          .slice(0, 6)
           .map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
