@@ -16,12 +16,41 @@ export type ProjectData = {
 
 export const allProjects: ProjectData[] = [
   {
+    id: 18,
+    name: "TiffinTally",
+    href: "https://github.com/taqui-786/tiffintally",
+    live: "https://tiffintally.vercel.app",
+    createdAt: "06-10-2026",
+    featured: true,
+    banner: "/project_banners/tiffintally_banner.png",
+    description:
+      "Small tiffin services and home kitchens face food waste and delivery chaos trying to track daily subscriber meal pauses, cancellations, and extra orders scattered across WhatsApp messages and voice notes. TiffinTally bridges WhatsApp chats directly to an automated multi-model AI reconciliation pipeline—turning unstructured conversational updates into verified, single-tap approval proposals and producing an immutable, finalized daily kitchen packing sheet.",
+    features: [
+      "ElevenLabs Scribe v2 - Speech-to-text engine used to transcribe noisy regional WhatsApp voice notes into clean text with low latency so kitchen owners don't manually decipher audio while cooking",
+      "Backboard SDK & Gemma 27B - Specialized LLM extraction pipeline used to parse natural language messages into structured meal operations, date boundaries, customer aliases, and verbatim quote evidence",
+      "TypeSafe JEV (System One) - Sub-second typed parallel decision guard used to classify intent, auto-dismiss casual non-order chatter, and block hallucinations before human review",
+      "Baileys WhatsApp Web Bridge - Multi-device socket bridge used to ingest incoming customer messages and voice notes in real time without forcing subscribers to install a new app",
+      "TabPFN Foundation Model - Zero-shot tabular forecasting model used to predict next-day meal counts and kitchen ingredient prep from weekday trends without prior training",
+      "MongoDB Replica Set Transactions - ACID snapshot transactions used to guarantee deterministic order state revisions and prevent double-counting meals on message re-imports",
+      "Better-Auth & RateLimiterMongo - Secure Google OAuth session authentication and per-tenant rate limiting used to safeguard API budgets and enforce multi-tenant isolation",
+      "Immutable Daily Packing Sheets - Cryptographically versioned packing sheet generator used to produce finalized batch manifests with change audit receipts and CSV exports",
+    ],
+    technologies: [
+      techStack.mongodb,
+      techStack.typescript,
+      techStack.nodejs,
+      techStack.oauth,
+      techStack.tanstackquery,
+      techStack.etc,
+    ],
+  },
+  {
     id: 17,
     name: "Mascen",
     href: "https://github.com/taqui-786/mascot",
     live: "https://mascen.vercel.app",
     createdAt: "20-09-2026",
-    featured: true,
+    featured: false,
     banner: "/project_banners/mascen_banner.png",
     description:
       "The open-source interactive AI mascot engine & brand studio. Mascen brings digital interfaces to life with cursor-aware desktop and web mascots powered by dual 3×3 sprite atlases, real-time physics, zero-clutter logo generation, and a drop-in CLI runtime.",
