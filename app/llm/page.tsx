@@ -109,14 +109,21 @@ function generateLLMContent(): string {
   );
   sections.push("");
 
-  // Featured projects first
-  const featuredProjects = allProjects.filter((p) => p.featured);
+  // Featured projects first (sorted by featuredSeries: 1 to 6)
+  const featuredProjects = allProjects
+    .filter((p) => p.featured)
+    .sort(
+      (a, b) => (a.featuredSeries ?? Infinity) - (b.featuredSeries ?? Infinity)
+    );
   const otherProjects = allProjects.filter((p) => !p.featured);
 
   sections.push("### FEATURED PROJECTS");
   featuredProjects.forEach((project, index) => {
     sections.push(`#### Project ${index + 1}: ${project.name}`);
     sections.push(`Name: ${project.name}`);
+    if (project.featuredSeries !== undefined) {
+      sections.push(`Featured Series: ${project.featuredSeries}`);
+    }
     sections.push(`Description: ${project.description}`);
     sections.push(`Live URL: ${project.live}`);
     sections.push(`GitHub: ${project.href}`);
@@ -137,6 +144,9 @@ function generateLLMContent(): string {
       `#### Project ${featuredProjects.length + index + 1}: ${project.name}`
     );
     sections.push(`Name: ${project.name}`);
+    if (project.featuredSeries !== undefined) {
+      sections.push(`Featured Series: ${project.featuredSeries}`);
+    }
     sections.push(`Description: ${project.description}`);
     sections.push(`Live URL: ${project.live}`);
     sections.push(`GitHub: ${project.href}`);

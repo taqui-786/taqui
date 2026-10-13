@@ -46,6 +46,9 @@ export async function GET() {
   sections.push("## FEATURED PROJECTS");
   allProjects
     .filter((p) => p.featured)
+    .sort(
+      (a, b) => (a.featuredSeries ?? Infinity) - (b.featuredSeries ?? Infinity)
+    )
     .forEach((p) => {
       sections.push(`- ${p.name}: ${p.description}`);
       sections.push(`  Live: ${p.live} | GitHub: ${p.href}`);

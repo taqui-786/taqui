@@ -7,6 +7,7 @@ export type ProjectData = {
   href: string;
   live: string;
   featured: boolean;
+  featuredSeries?: number;
   createdAt: string;
   banner: string;
   description: string;
@@ -22,6 +23,7 @@ export const allProjects: ProjectData[] = [
     live: "https://tiffintally.vercel.app",
     createdAt: "06-10-2026",
     featured: true,
+    featuredSeries: 5,
     banner: "/project_banners/tiffintally_banner.png",
     description:
       "Small tiffin services and home kitchens face food waste and delivery chaos trying to track daily subscriber meal pauses, cancellations, and extra orders scattered across WhatsApp messages and voice notes. TiffinTally bridges WhatsApp chats directly to an automated multi-model AI reconciliation pipeline—turning unstructured conversational updates into verified, single-tap approval proposals and producing an immutable, finalized daily kitchen packing sheet.",
@@ -86,6 +88,7 @@ export const allProjects: ProjectData[] = [
     live: "https://tweetz.app/",
     createdAt: "20-08-2025",
     featured: true,
+    featuredSeries: 3,
     banner: "/project_banners/tweetz_banner.png",
     description:
       "Tweetz.app is an AI-assisted Twitter posting with one-tap Telegram approvals with learning and editing features",
@@ -122,6 +125,7 @@ export const allProjects: ProjectData[] = [
     live: "https://wryte-ti.vercel.app/",
     createdAt: "01-12-2025",
     featured: true,
+    featuredSeries: 2,
     banner: "/project_banners/wryte_banner.png",
     description:
       "Wryte is an AI-powerered blog/content writting platform, it have its own WYSIWYG Ai-editor and be in user tone with various feature such as Auto-complete, next word suggestion, spelling check etc... ",
@@ -155,6 +159,7 @@ export const allProjects: ProjectData[] = [
     live: "https://drawva.vercel.app",
     createdAt: "08-08-2026",
     featured: true,
+    featuredSeries: 1,
     banner: "/project_banners/drawva_banner.png",
     description:
       "A tile-based infinite canvas powered by a multimodal AI perception agent. Draw sketches, wireframes, math, or notes, and the AI visually inspects your canvas to generate interactive diagrams, executable code, formulas, and sandboxed applets.",
@@ -220,7 +225,8 @@ export const allProjects: ProjectData[] = [
     live: "https://wepost.vercel.app",
     createdAt: "09-03-2025",
     banner: "/project_banners/wepost_banner.png",
-    featured: false,
+    featured: true,
+    featuredSeries: 6,
     description:
       "WePost is a modern and minimalistic social media platform enabling users to share posts, connect, and engage in discussions. It delivers a seamless and secure experience using the latest web technologies.",
     features: [
@@ -250,6 +256,7 @@ export const allProjects: ProjectData[] = [
     href: "https://github.com/taqui-786/itZmyLink",
     live: "https://itzmylink.vercel.app/",
     featured: true,
+    featuredSeries: 4,
     createdAt: "14-10-2023",
     banner: "/project_banners/itzmylink_banner.png",
     description:
