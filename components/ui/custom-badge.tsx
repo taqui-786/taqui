@@ -19,3 +19,10 @@ export const CustomBadge = ({
     </a>
   );
 };
+
+export {
+  CombinedBadge,
+  type CombinedBadgeItem,
+  type CombinedBadgeProps,
+} from "./combined-badge";
+

@@ -2,6 +2,144 @@ type PythonProps = {
   size: number;
 };
 
+type ClaudeProps = {
+  size: number;
+  className?: string;
+};
+      
+export const Claude = ({ size, className }: ClaudeProps) => (
+  <svg width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.233 4.233"><path fill="#ff7043" d="m1 2.73l.726-.408l.012-.036l-.012-.02h-.035l-.122-.007l-.415-.011l-.36-.015l-.35-.019l-.087-.018l-.082-.109l.008-.054l.074-.05l.106.01l.233.016l.351.024l.255.015l.376.04h.06l.009-.025l-.02-.015l-.017-.015l-.363-.246l-.392-.26l-.206-.15l-.111-.075L.58 1.23l-.024-.155l.101-.111l.136.01l.034.009l.138.105l.293.228l.384.282l.056.047l.022-.016l.003-.011l-.025-.042l-.209-.377l-.222-.384l-.1-.159l-.025-.095a.5.5 0 0 1-.016-.112l.115-.157l.063-.02l.154.02l.064.057l.096.217l.154.344l.24.466l.07.139l.037.128l.014.04h.024V1.66l.02-.263l.036-.323L2.25.66l.012-.117l.058-.14l.115-.076l.09.043l.074.106l-.01.068l-.045.285l-.086.447l-.056.3h.033l.037-.038l.152-.2l.254-.319l.113-.126l.13-.14l.085-.066h.159l.117.174l-.053.18l-.164.207l-.135.176l-.195.262l-.121.21l.011.016l.029-.002l.44-.094l.237-.043l.283-.049l.129.06l.014.061l-.05.124l-.304.075l-.355.071l-.53.126l-.006.004l.007.01l.239.022l.102.006h.25l.464.034l.122.08l.073.099l-.012.075l-.187.095l-.253-.06l-.59-.14l-.201-.05h-.028v.016l.168.165l.309.279l.386.359l.02.089l-.05.07l-.052-.008l-.34-.255l-.13-.115l-.297-.25h-.02v.026l.068.1l.361.543l.02.166l-.027.055l-.094.032l-.102-.018l-.212-.297l-.218-.334l-.175-.299l-.022.012l-.104 1.118l-.048.057l-.113.043l-.093-.071l-.05-.115l.05-.228l.06-.296l.048-.236l.044-.292l.026-.098l-.001-.006l-.022.003l-.22.303l-.336.453l-.266.284l-.064.026l-.11-.057l.01-.102l.062-.091l.368-.468l.221-.29l.143-.167v-.024h-.009l-.976.634l-.174.022l-.075-.07l.01-.115l.035-.037z"/></svg>
+);
+type CodexProps = {
+  size: number;
+  className?: string;
+};
+
+export const Codex = ({ size, className }: CodexProps) => (
+    <svg width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" viewBox="2.5 2.5 19 19">
+        <path
+            fill="url(#lobe-icons-codex-_R_0_)"
+            d="M9.064 3.344a4.578 4.578 0 012.285-.312c1 .115 1.891.54 2.673 1.275.01.01.024.017.037.021a.09.09 0 00.043 0 4.55 4.55 0 013.046.275l.047.022.116.057a4.581 4.581 0 012.188 2.399c.209.51.313 1.041.315 1.595a4.24 4.24 0 01-.134 1.223.123.123 0 00.03.115c.594.607.988 1.33 1.183 2.17.289 1.425-.007 2.71-.887 3.854l-.136.166a4.548 4.548 0 01-2.201 1.388.123.123 0 00-.081.076c-.191.551-.383 1.023-.74 1.494-.9 1.187-2.222 1.846-3.711 1.838-1.187-.006-2.239-.44-3.157-1.302a.107.107 0 00-.105-.024c-.388.125-.78.143-1.204.138a4.441 4.441 0 01-1.945-.466 4.544 4.544 0 01-1.61-1.335c-.152-.202-.303-.392-.414-.617a5.81 5.81 0 01-.37-.961 4.582 4.582 0 01-.014-2.298.124.124 0 00.006-.056.085.085 0 00-.027-.048 4.467 4.467 0 01-1.034-1.651 3.896 3.896 0 01-.251-1.192 5.189 5.189 0 01.141-1.6c.337-1.112.982-1.985 1.933-2.618.212-.141.413-.251.601-.33.215-.089.43-.164.646-.227a.098.098 0 00.065-.066 4.51 4.51 0 01.829-1.615 4.535 4.535 0 011.837-1.388zm3.482 10.565a.637.637 0 000 1.272h3.636a.637.637 0 100-1.272h-3.636zM8.462 9.23a.637.637 0 00-1.106.631l1.272 2.224-1.266 2.136a.636.636 0 101.095.649l1.454-2.455a.636.636 0 00.005-.64L8.462 9.23z"
+        />
+        <defs>
+            <linearGradient id="lobe-icons-codex-_R_0_" x1="12" x2="12" y1="3" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#B1A7FF" />
+                <stop offset=".5" stopColor="#7A9DFF" />
+                <stop offset="1" stopColor="#3941FF" />
+            </linearGradient>
+        </defs>
+    </svg>
+);
+
+type AntigravityProps = {
+  size: number;
+  className?: string;
+};
+
+export const Antigravity = ({ size, className }: AntigravityProps) => (
+    <svg width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <mask id="lobe-icons-antigravity-0-_R_0_" maskUnits="userSpaceOnUse" x="0" y="1" width="24" height="23">
+            <path fill="#fff" d="M21.751 22.607c1.34 1.005 3.35.335 1.508-1.508C17.73 15.74 18.904 1 12.037 1 5.17 1 6.342 15.74.815 21.1c-2.01 2.009.167 2.511 1.507 1.506 5.192-3.517 4.857-9.714 9.715-9.714 4.857 0 4.522 6.197 9.714 9.715z" />
+        </mask>
+        <g mask="url(#lobe-icons-antigravity-0-_R_0_)">
+            <g filter="url(#lobe-icons-antigravity-1-_R_0_)">
+                <path fill="#FFE432" d="M-1.018-3.992c-.408 3.591 2.686 6.89 6.91 7.37 4.225.48 7.98-2.043 8.387-5.633.408-3.59-2.686-6.89-6.91-7.37-4.225-.479-7.98 2.043-8.387 5.633z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-2-_R_0_)">
+                <path fill="#FC413D" d="M15.269 7.747c1.058 4.557 5.691 7.374 10.348 6.293 4.657-1.082 7.575-5.653 6.516-10.21-1.058-4.556-5.691-7.374-10.348-6.292-4.657 1.082-7.575 5.653-6.516 10.21z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-3-_R_0_)">
+                <path fill="#00B95C" d="M-12.443 10.804c1.338 4.703 7.36 7.11 13.453 5.378 6.092-1.733 9.947-6.95 8.61-11.652C8.282-.173 2.26-2.58-3.833-.848-9.925.884-13.78 6.1-12.443 10.804z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-4-_R_0_)">
+                <path fill="#00B95C" d="M-12.443 10.804c1.338 4.703 7.36 7.11 13.453 5.378 6.092-1.733 9.947-6.95 8.61-11.652C8.282-.173 2.26-2.58-3.833-.848-9.925.884-13.78 6.1-12.443 10.804z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-5-_R_0_)">
+                <path fill="#00B95C" d="M-7.608 14.703c3.352 3.424 9.126 3.208 12.896-.483 3.77-3.69 4.108-9.459.756-12.883C2.69-2.087-3.083-1.871-6.853 1.82c-3.77 3.69-4.108 9.458-.755 12.883z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-6-_R_0_)">
+                <path fill="#3186FF" d="M9.932 27.617c1.04 4.482 5.384 7.303 9.7 6.3 4.316-1.002 6.971-5.448 5.93-9.93-1.04-4.483-5.384-7.304-9.7-6.301-4.316 1.002-6.971 5.448-5.93 9.93z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-7-_R_0_)">
+                <path fill="#FBBC04" d="M2.572-8.185C.392-3.329 2.778 2.472 7.9 4.771c5.122 2.3 11.042.227 13.222-4.63 2.18-4.855-.205-10.656-5.327-12.955-5.122-2.3-11.042-.227-13.222 4.63z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-8-_R_0_)">
+                <path fill="#3186FF" d="M-3.267 38.686c-5.277-2.072 3.742-19.117 5.984-24.83 2.243-5.712 8.34-8.664 13.616-6.592 5.278 2.071 11.533 13.482 9.29 19.195-2.242 5.713-23.613 14.298-28.89 12.227z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-9-_R_0_)">
+                <path fill="#749BFF" d="M28.71 17.471c-1.413 1.649-5.1.808-8.236-1.878-3.135-2.687-4.531-6.201-3.118-7.85 1.412-1.649 5.1-.808 8.235 1.878s4.532 6.2 3.119 7.85z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-10-_R_0_)">
+                <path fill="#FC413D" d="M18.163 9.077c5.81 3.93 12.502 4.19 14.946.577 2.443-3.612-.287-9.727-6.098-13.658-5.81-3.931-12.502-4.19-14.946-.577-2.443 3.612.287 9.727 6.098 13.658z" />
+            </g>
+            <g filter="url(#lobe-icons-antigravity-11-_R_0_)">
+                <path fill="#FFEE48" d="M-.915 2.684c-1.44 3.473-.97 6.967 1.05 7.804 2.02.837 4.824-1.3 6.264-4.772 1.44-3.473.97-6.967-1.05-7.804-2.02-.837-4.824 1.3-6.264 4.772z" />
+            </g>
+        </g>
+        <defs>
+            <filter id="lobe-icons-antigravity-1-_R_0_" x="-3.288" y="-11.917" width="19.838" height="17.587" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="1.117" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-2-_R_0_" x="4.251" y="-13.493" width="38.9" height="38.565" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="5.4" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-3-_R_0_" x="-21.889" y="-10.592" width="40.955" height="36.517" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="4.591" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-4-_R_0_" x="-21.889" y="-10.592" width="40.955" height="36.517" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="4.591" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-5-_R_0_" x="-19.099" y="-10.278" width="36.632" height="36.595" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="4.591" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-6-_R_0_" x=".981" y="8.758" width="33.533" height="34.087" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="4.363" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-7-_R_0_" x="-6.143" y="-21.659" width="35.978" height="35.276" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="3.954" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-8-_R_0_" x="-11.96" y="-.46" width="45.114" height="46.523" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="3.531" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-9-_R_0_" x="10.485" y=".58" width="25.094" height="24.054" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="3.159" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-10-_R_0_" x="5.833" y="-12.467" width="33.508" height="30.007" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="2.669" result="effect1_foregroundBlur_977_115" />
+            </filter>
+            <filter id="lobe-icons-antigravity-11-_R_0_" x="-8.355" y="-8.876" width="22.194" height="26.151" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="3.303" result="effect1_foregroundBlur_977_115" />
+            </filter>
+        </defs>
+    </svg>
+);
+
+export const ClaudeIcon = Claude;
+export const CodexIcon = Codex;
+export const AntigravityIcon = Antigravity;
+      
 export const PythonIcon = ({ size }: PythonProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

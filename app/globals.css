@@ -139,7 +139,7 @@
   }
   100% {
     opacity: 1;
-    filter: blur(0px);
+    filter: none;
   }
 }
 .animate-fade-in-blur {
@@ -147,6 +147,14 @@
   animation-delay: 0.3s;
   opacity: 0.4;
   filter: blur(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-blur {
+    animation: none;
+    opacity: 1;
+    filter: none;
+  }
 }
 @keyframes shake {
   0%,

@@ -117,7 +117,7 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
                     {/* Banner */}
                     <motion.div
                       layoutId={`card-banner-${project.name}`}
-                      className="w-full bg-black/5 dark:bg-white/15 aspect-video shrink-0 relative overflow-hidden"
+                      className="w-full bg-black/5 dark:bg-white/15 aspect-video shrink-0 relative overflow-hidden [transform:translateZ(0)]"
                       transition={springTransition}
                     >
                       <motion.div
@@ -130,7 +130,9 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
                             src={project.banner}
                             alt={project.name}
                             fill
-                            className="object-cover h-full w-auto"
+                            sizes="(max-width: 768px) 100vw, 700px"
+                            quality={90}
+                            className="object-cover object-top w-full h-full"
                           />
                         )}
                       </motion.div>
@@ -148,13 +150,20 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
                       {/* Header with title, date, and links */}
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex flex-col gap-1">
-                          <motion.h2
-                            layoutId={`card-title-${project.name}`}
-                            className="text-2xl font-bold text-title"
-                            transition={springTransition}
-                          >
-                            {activeItem.name}
-                          </motion.h2>
+                          <div className="flex items-center gap-2">
+                            <motion.h2
+                              layoutId={`card-title-${project.name}`}
+                              className="text-2xl font-bold text-title"
+                              transition={springTransition}
+                            >
+                              {activeItem.name}
+                            </motion.h2>
+                            {project.isMiniProject && (
+                              <span className="text-xs font-medium px-2.5 py-0.5 rounded-full border border-border bg-muted/60 text-muted-foreground">
+                                Mini Project
+                              </span>
+                            )}
+                          </div>
                           <motion.span
                             initial={{ opacity: 0, y: 5 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -281,12 +290,12 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
         <div className="p-1 rounded-[10px]  w-full border border-dashed dark:border-white/30 border-black/20 ">
           <motion.div
             layoutId={`card-banner-${project.name}`}
-            className="w-full bg-black/5 dark:bg-white/15 aspect-4/3 h-44 relative rounded-[8px] border  border-border overflow-hidden "
+            className="w-full bg-black/5 dark:bg-white/15 aspect-4/3 h-44 relative rounded-[8px] border border-border overflow-hidden [transform:translateZ(0)]"
             transition={springTransition}
           >
             <motion.div
               layoutId={`card-banner-image-${project.name}`}
-              className="h-auto w-[85%] absolute mx-auto left-0 right-0 aspect-4/2 shadow-2xl rounded-sm overflow-hidden"
+              className="h-auto w-[85%] absolute mx-auto left-0 right-0 aspect-[2/1] shadow-2xl rounded-sm overflow-hidden transform-gpu [backface-visibility:hidden] [transform:translateZ(0)] will-change-transform"
               initial={{ bottom: "-2rem", rotate: -8 }}
               whileHover={{ bottom: 0, rotate: 0 }}
               transition={{
@@ -300,7 +309,9 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
                   src={project.banner}
                   alt={project.name}
                   fill
-                  className="object-cover h-full w-auto"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                  quality={90}
+                  className="object-cover object-top w-full h-full [image-rendering:-webkit-optimize-contrast]"
                 />
               )}
             </motion.div>
@@ -315,13 +326,20 @@ export default function ProjectCard({ project }: { project: ProjectData }) {
         {/* Detail section */}
         <div className="px-2 py-3 flex w-full flex-col gap-4">
           <div className="flex items-center justify-between">
-            <motion.span
-              layoutId={`card-title-${project.name}`}
-              className="text-xl font-semibold text-title"
-              transition={springTransition}
-            >
-              {project.name}
-            </motion.span>
+            <div className="flex items-center gap-2">
+              <motion.span
+                layoutId={`card-title-${project.name}`}
+                className="text-xl font-semibold text-title"
+                transition={springTransition}
+              >
+                {project.name}
+              </motion.span>
+              {project.isMiniProject && (
+                <span className="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full border border-border bg-muted/60 text-muted-foreground">
+                  Mini Project
+                </span>
+              )}
+            </div>
             <motion.div
               layoutId={`card-links-${project.name}`}
               className="flex gap-2 items-center text-muted-foreground [&_svg]:cursor-pointer [&_svg]:transition-colors [&_svg]:hover:text-primary"
